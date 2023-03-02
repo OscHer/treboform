@@ -25,8 +25,14 @@ He decidido usar valores por defecto en muchos de los archivos porque, aunque co
 
 #### Git
 
-### Vagrant
+#### Vagrant
 Antes de realizar cualquier commit tras una modificación del [Vagrantfile](Vagrantfile) he preferido realizar una comprobación completa con `vagrant destroy -f && vagrant up`. De este modo nos aseguramos una IaC más robusta y portable.
+
+##### Aprovisionamiento
+El [aprovisionamiento](https://developer.hashicorp.com/vagrant/docs/provisioning/basic_usage) se realiza en dos fases en este orden: *pre-aprovisionamiento* y aprovisionamiento propiamente dicho.
+
+* **Pre-aprovisionamiento:** Dado que la infraestructura y sistema operativo puede variar. He preferido insertar una capa previa para preparar el entorno antes de aprovisionar mediante *Ansible*. De este modo no necesitamos tener Ansible instalado en el anfitrión y evitamos dependencias con repositorios para suscripción y similares.7
+* **Aprovisionamiento:** Usaremos *[ansible local](https://developer.hashicorp.com/vagrant/docs/provisioning/ansible_local)* y, sin volvernos locos con la abstracción, trataremos de mantener un *[playbook](https://docs.ansible.com/ansible/latest/playbook_guide/playbooks_intro.html)* relativamente ordenado y escalable.
 
 ### Conceptos
 
