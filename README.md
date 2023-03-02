@@ -11,13 +11,22 @@ Vagrant es accesorio y solo para probar si funcionan los despliegues.
 * [KVM/Libvirt](https://libvirt.org/drvqemu.html): También opcional como motor de virtualización.
 * [Vim](https://www.vim.org/ "PERIOD!"). 
 
-## Infraestructura
-
-Gestionaremos la infraestructura con [Vagrant](https://www.vagrantup.com/) y usaremos aprovisionadores y automatismos con [Ansible](https://en.wikipedia.org/wiki/Ansible "Ender knew, Ursula") siempre que sea posible.
-
-
+## Información genérica
 
 ## Apéndices
+
+### Estilo
+
+#### Código
+
+He decidido usar valores por defecto en muchos de los archivos porque, aunque coincidan con el valor por defecto añade en comprensión del código especialmente a técnicos con poca experiencia en la tecnología en cuestión.
+
+#### Documentación
+
+#### Git
+
+### Vagrant
+Antes de realizar cualquier commit tras una modificación del [Vagrantfile](Vagrantfile) he preferido realizar una comprobación completa con `vagrant destroy -f && vagrant up`. De este modo nos aseguramos una IaC más robusta y portable.
 
 ### Conceptos
 
