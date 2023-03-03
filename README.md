@@ -11,6 +11,14 @@ Vagrant es accesorio y solo para probar si funcionan los despliegues.
 * [KVM/Libvirt](https://libvirt.org/drvqemu.html): También opcional como motor de virtualización.
 * [Vim](https://www.vim.org/ "PERIOD!"). 
 
+## Instrucciones de uso
+
+Una vez tenemos las dependencias de más arriba satisfechas ejecutamos en nuestro terminal:
+    $ git clone https://github.com/OscHer/treboform
+    $ cd treboform
+    $ vagrant up
+    $ echo "He who controls the species controls the universe"
+
 ## Información genérica
 
 ## Apéndices
