@@ -69,6 +69,7 @@ Antes de realizar cualquier commit tras una modificación del [Vagrantfile](Vagr
 
 ### Roadmap
 * secondary logging
+* añadir dotfiles
 * colector rsyslog
 * Stack ELK para cocinado, indexado y auditado de logs
 * Sistema de alertado basado en ELK
