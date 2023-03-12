@@ -18,3 +18,6 @@ upgrade_without_asking()
 
 apt-get update # Actualizar repositorios
 upgrade_without_asking
+
+# Instalar mis manías 
+apt-get install git vim tmux -y
