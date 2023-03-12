@@ -31,7 +31,7 @@ En este momento, lo que ocurre entre bambalinas es:
 
 ### Uso
 
-En la presente edición de este documento los scripts de treboformación se desplegarán mediante [shell provisioner](https://developer.hashicorp.com/vagrant/docs/provisioning/shell) con la intención de usar aprovisionadores diversos en función de las necesidades de cada usuario.
+En la presente edición de este documento los scripts de treboformación se desplegarán mediante aprovisionadores **file** y **shell** desde el Vagrantfile 
 
 ## Apéndices
 
