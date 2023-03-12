@@ -8,6 +8,9 @@
 # pero añade una buena capa de seguridad.
 
 # Defaults
-SL_DIRECTORY="/var/logs/sl" # Directorio que almacenará los logs de SL
+SL_DIRECTORY="/var/log/sl" # Directorio que almacenará los logs de SL
 SL_SCRIPT="/etc/profile.d/sl.sh" # Script que importaremos al iniciar una terminal de login
 # TODO: considerar ponerlo en .bashrc para cubrir también sesiones sin login. 
+
+
+[[ ! -d $SL_DIRECTORY ]] && mkdir -p $SL_DIRECTORY 2> /dev/null
