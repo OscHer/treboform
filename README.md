@@ -13,6 +13,7 @@ Vagrant es accesorio y solo para probar si funcionan los despliegues.
 
 ## Instrucciones de uso
 
+### Setup
 Una vez tenemos las dependencias de más arriba satisfechas ejecutamos en nuestro terminal:
 ```bash
 $ git clone https://github.com/OscHer/treboform
@@ -27,6 +28,10 @@ En este momento, lo que ocurre entre bambalinas es:
     2. Aprovisionamiento propiamente dicho mediante *[ansible_local](https://developer.hashicorp.com/vagrant/docs/provisioning/ansible_local)* 
 4. Durante el paso de aprovisionamiento se despliegan scripts varios [(si no estuvieran desplegados ya)](https://en.wikipedia.org/wiki/Declarative_programming)
 5. Como resultado tenemos un entorno treboformado y poder desarrollar nuestra solución en un ambiente cómodo y con suficiente café
+
+### Uso
+
+En la presente edición de este documento los scripts de treboformación se desplegarán mediante [shell provisioner](https://developer.hashicorp.com/vagrant/docs/provisioning/shell) con la intención de usar aprovisionadores diversos en función de las necesidades de cada usuario.
 
 ## Apéndices
 
@@ -68,7 +73,7 @@ Antes de realizar cualquier commit tras una modificación del [Vagrantfile](Vagr
 * **Pre-aprovisionamiento:** Requisitos previos antes de realizar un aprovisionamiento. Por ejemplo: si queremos usar *[ansible_local](https://developer.hashicorp.com/vagrant/docs/provisioning/ansible_local)* necesitaremos que en los nodos estén los correspondientes repositorios habilitados.
 
 ### Roadmap
-* secondary logging
+* secondary logging 
 * añadir dotfiles
 * colector rsyslog
 * Stack ELK para cocinado, indexado y auditado de logs
