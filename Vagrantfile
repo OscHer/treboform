@@ -13,7 +13,7 @@ Vagrant.configure("2") do |config|
 
   # Aprovisionamiento
   # Pre-aprovisionamiento mediante shell script. Ver README.md
-  config.vm.provision "preprovision", type: "shell", path: "provision/preprovision.sh"
+  config.vm.provision "preprovision", type: "shell", path: "provision/shell/preprovision.sh"
 
   # Aprovisionamiento declarativo 
   config.vm.provision :ansible_local do |ansible|
