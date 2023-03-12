@@ -14,6 +14,10 @@ Vagrant.configure("2") do |config|
   # Aprovisionamiento
   # Pre-aprovisionamiento mediante shell script. Ver README.md
   config.vm.provision "preprovision", type: "shell", path: "provision/shell/preprovision.sh"
+  # Subimos archivos para secondary logging a una localización temporal
+  config.vm.provision "secondary_logging", type: "file", source: "provision/shell/secondary_logging.sh", destination: "/tmp/secondary_logging.sh"
+  # TODO: mover mediante shell provisioner el archivo de secondary logging
+
 
   # Aprovisionamiento declarativo 
   config.vm.provision :ansible_local do |ansible|
