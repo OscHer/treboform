@@ -1,17 +1,22 @@
 # Treboform
 
-Este proyecto gestionará la treboformación de servidores GNU/Linux.
-Vagrant es accesorio y solo para probar si funcionan los despliegues.
+The present project consists of creating an encyclopedia that includes all the necessary knowledge
+to create a Type III (in [Kardashev scale](https://en.wikipedia.org/wiki/Kardashev_scale)) galaxy-spanning civilization.
 
-## Dependencias
+## Description
+
+Main goal of this project is to provide minimal services I (and by ***I*** I mean ***me***) happen to consider essential
+for a cloud IT environment.
+
+## Dependencies
 
 * [Vagrant](https://www.vagrantup.com)
-* [Ansible](https://www.ansible.com): Solo para despliegues. Siéntete libre de saltártelo.
-* [Virtualbox](https://www.virtualbox.org/): O KVM si lo prefieres.
-* [KVM/Libvirt](https://libvirt.org/drvqemu.html): También opcional como motor de virtualización.
+* [Ansible](https://www.ansible.com)
+* [Virtualbox](https://www.virtualbox.org/): O [qemu](https://www.qemu.org) if you prefer
+* [KVM/Libvirt](https://libvirt.org/drvqemu.html): this is optional too
 * [Vim](https://www.vim.org/ "PERIOD!"). 
 
-## Instrucciones de uso
+## Usage
 
 ### Setup
 Una vez tenemos las dependencias de más arriba satisfechas ejecutamos en nuestro terminal:
