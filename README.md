@@ -19,28 +19,22 @@ for a cloud IT environment.
 ## Usage
 
 ### Setup
-Una vez tenemos las dependencias de más arriba satisfechas ejecutamos en nuestro terminal:
+In your bash shell:
 ```bash
 $ git clone https://github.com/OscHer/treboform
 $ cd treboform
 $ vagrant up && echo "He who controls the species controls the universe"
 ```
-En este momento, lo que ocurre entre bambalinas es:
-1. Vagrant busca la imagen(box) en el directorio del host.
-2. Si la encuentra, la instancia; si no la encuentra, la busca en [su repositorio](https://app.vagrantup.com/boxes/search) y la instancia.
-3. Una vez la máquina está arrancada y funcionando empieza el aprovisonamiento en serie:
-    1. [Pre-aprovisionamiento](provision/preprovision.sh) mediante shell script
-    2. Aprovisionamiento propiamente dicho mediante *[ansible_local](https://developer.hashicorp.com/vagrant/docs/provisioning/ansible_local)* 
-4. Durante el paso de aprovisionamiento se despliegan scripts varios [(si no estuvieran desplegados ya)](https://en.wikipedia.org/wiki/Declarative_programming)
-5. Como resultado tenemos un entorno treboformado y poder desarrollar nuestra solución en un ambiente cómodo y con suficiente café
 
-### Uso
+Right now, what's going on behind the scenes is:
+1. Vagrant looks for the box somewhere in the local host.
+2. If there's one, creates a VM; if not, vagrant looks for it in [its public repository](https://app.vagrantup.com/boxes/search).
+3. Once the instantiated VM is up and running starts the provisioning process.
+5. As a result we have a fully treboformed Type III Civilization and the magic begins.
 
-En la presente edición de este documento los scripts de treboformación se desplegarán mediante aprovisionadores **file** y **shell** desde el Vagrantfile 
+## Appendices
 
-## Apéndices
-
-### Estilo
+### Style guidelines used in this project
 
 #### Aprovisionamiento
 El [aprovisionamiento](https://developer.hashicorp.com/vagrant/docs/provisioning/basic_usage) se realiza en dos fases en este orden: *pre-aprovisionamiento* y aprovisionamiento propiamente dicho.
