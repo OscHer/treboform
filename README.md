@@ -34,36 +34,22 @@ Right now, what's going on behind the scenes is:
 
 ## Appendices
 
-### Style guidelines used in this project
+### Style guidelines
 
-#### Aprovisionamiento
-El [aprovisionamiento](https://developer.hashicorp.com/vagrant/docs/provisioning/basic_usage) se realiza en dos fases en este orden: *pre-aprovisionamiento* y aprovisionamiento propiamente dicho.
+#### Backlog
 
-* **Pre-aprovisionamiento:** Dado que la infraestructura y sistema operativo puede variar. He preferido insertar una capa previa para preparar el entorno antes de aprovisionar mediante *Ansible*. De este modo no necesitamos tener Ansible instalado en el anfitrión y evitamos dependencias con repositorios para suscripción y similares.7
-* **Aprovisionamiento:** Usaremos *[ansible local](https://developer.hashicorp.com/vagrant/docs/provisioning/ansible_local)* y, sin volvernos locos con la abstracción, trataremos de mantener un *[playbook](https://docs.ansible.com/ansible/latest/playbook_guide/playbooks_intro.html)* relativamente ordenado y escalable.
-
-#### Código
-
-He decidido usar valores por defecto en muchos de los archivos porque, aunque coincidan con el valor por defecto añade en comprensión del código especialmente a técnicos con poca experiencia en la tecnología en cuestión.
-
-##### Backlog
-
-Para no perder foco utilizaré un etiquetado en comentarios del código fuente para esas situaciones en las que te encuentras desarrollando y caes en la cuenta de que generas dependencias.
-Con dejar un comentario con la siguiente sintaxis: `# TODO-oscar:` estaríamos generando una etiqueta susceptible de ser buscada mediante *[grep](https://www.man7.org/linux/man-pages/man1/grep.1.html)* y generar un texto con formato cercano a CSV.
-
-#### Documentación
-
-Generalmente uso un githook que obliga a escribir una línea en el [README.md](README.md) por cada cinco líneas de código: no me creo que 5 líneas de código cualesquiera (en positivo o en negativo) no merezcan al menos una mención de una línea en el README.md.
-Al momento de la presente edición no lo he implementado en este proyecto por razones de simplicidad, pero si el tiempo o la deuda documental lo permiten, lo acabaré haciendo.
+In order to help me focus in the coding part I've added some comments standards to solve those situations
+when you're typing at a good pace and having to stop, even if it's only for a second, to add backlog is distracting.
+So, comments like `# TODO-oscar: abstract this onto that` make a good balance between strict and easy. Plus, you can
+parse them later with *[grep-like](https://www.man7.org/linux/man-pages/man1/grep.1.html)* tools and, even, create
+a backlog.csv.
 
 #### Git
 
-Para facilitar filtrados en commits (por ejemplo git grep) y in caer [en lo barroco](https://www.conventionalcommits.org/en/v1.0.0/#specification) (por el momento)
-he decidido usar el carácter 'C' delante de un commit con mensaje. De este modo, el project manager tiene a su disposición (¡JA!) la documentación tanto técnica
-como funcional al alcance de la mano y así no tiene que madrugar para preguntar '¿cómo vas?'.
+Adding 'C' before a commit message allows us to filter with grep without being unnecessary [baroque](https://www.conventionalcommits.org/en/v1.0.0/#specification).
 
 #### Vagrant
-Antes de realizar cualquier commit tras una modificación del [Vagrantfile](Vagrantfile) he preferido realizar una comprobación completa con `vagrant destroy -f && vagrant up`. De este modo nos aseguramos una IaC más robusta y portable.
+Every time I've modified my main [Vagrantfile](https://developer.hashicorp.com/vagrant/docs/vagrantfile) I've run a full test with `vagrant destroy -f && vagrant up`.
 
 ### Conceptos
 
