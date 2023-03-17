@@ -1,6 +1,0 @@
----
-- name: Starting Treboformation
-  hosts: all
-  tasks:
-    - name: Ping
-      ping:
