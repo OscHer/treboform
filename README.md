@@ -51,15 +51,14 @@ Adding 'C' before a commit message allows us to filter with grep without being u
 #### Vagrant
 Every time I've modified my main [Vagrantfile](https://developer.hashicorp.com/vagrant/docs/vagrantfile) I've run a full test with `vagrant destroy -f && vagrant up`.
 
-### Conceptos
+### Concepts
 
-* **Infraestructura:** Cualquier capa o componente situado por debajo de las máquinas virtuales. Por ejemplo: Vagrant, KVM/Libvirt, etc... Debe entenderse como un término relativo digan lo que digan los influencers del código.
-* **Metadocumentación:** La metadocumentación es un término usado para englobar toda aquella documentación, conocimiento, experiencia, trucos, etc... asociados al aprendizaje durante la ejecución del proyecto. Para entendernos: cuando terminas un proyecto y sale a producción (Y ESTO IMPLICA HABER TERMINADO LA DOCUMENTACIÓN PORQUE FORMA PARTE DEL PROYECTO) se le entrega al cliente la carpetita con el manual que nunca leerá pero queda genial en una estantería. Las cosas tipo "Los rebase están dando problemas en arquitecturas multilenguaje así que decidimos NO-SE-QUE" forman parte de una metadocumentación que los gurús estos de agile jamás mencionan.
-* **Pre-aprovisionamiento:** Requisitos previos antes de realizar un aprovisionamiento. Por ejemplo: si queremos usar *[ansible_local](https://developer.hashicorp.com/vagrant/docs/provisioning/ansible_local)* necesitaremos que en los nodos estén los correspondientes repositorios habilitados.
+* **Infrastructure:** Every layer or feature below any asset or functionality without which it couln't work. This must be understood as a relative term whatever SSMM influencers of the sacred brotherhood of standars say.
 
 ### Roadmap
+* CMDB
 * secondary logging 
-* añadir dotfiles
-* colector rsyslog
-* Stack ELK para cocinado, indexado y auditado de logs
-* Sistema de alertado basado en ELK
+* Dotfiles
+* Syslog collector
+* ELK stack
+* Monitoring
