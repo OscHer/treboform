@@ -17,11 +17,6 @@ Vagrant.configure("2") do |config|
   config.vm.define NODE do |machine|
     machine.vm.box = BOX_IMAGE
     machine.vm.hostname = NODE
-
-    machine.vm.provision :ansible_local do |ansible_local|
-      ansible_local.playbook = "provision/playbook.yml"
-      ansible_local.install = true
-    end
   end
 
 end
