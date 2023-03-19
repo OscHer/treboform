@@ -56,9 +56,12 @@ Every time I've modified my main [Vagrantfile](https://developer.hashicorp.com/v
 * **Infrastructure:** Every layer or feature below any asset or functionality without which it couln't work. This must be understood as a relative term whatever SSMM influencers of the sacred brotherhood of standars say.
 
 ### Roadmap
-* CMDB
-* secondary logging 
+* Secondary logging
+* [GLPI](https://glpi-project.org/) as CMDB
+* [ELK](https://www.elastic.co/es/) as monitoring and alerting tool
+* [Rsyslog](https://www.rsyslog.com/) collector.
+    - Dedicated server
+    - Standarized rsylog metrics
+    - Standarized APM metrics
+    - Standarized Python logs with [logging](https://docs.python.org/3/library/logging.html)
 * Dotfiles
-* Syslog collector
-* ELK stack
-* Monitoring
