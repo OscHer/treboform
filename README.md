@@ -30,7 +30,19 @@ Right now, what's going on behind the scenes is:
 1. Vagrant looks for the box somewhere in the local host.
 2. If there's one, creates a VM; if not, vagrant looks for it in [its public repository](https://app.vagrantup.com/boxes/search).
 3. Once the instantiated VM is up and running starts the provisioning process.
-5. As a result we have a fully treboformed Type III Civilization and the magic begins.
+4. As a result we have a fully treboformed Type III Civilization and the magic begins.
+
+### Assets
+#### Trantor: Ansible controller node
+**Trantor** will be our [Ansible control node](https://docs.ansible.com/ansible/latest/network/getting_started/basic_concepts.html). Our strategy consists in a centralized bastion
+to launch our configuration manager to every other node in our galaxy (not pun intended, or is it?).
+
+During the Vagrantfile provisioning, ansible is installed with *:default* mode; that is: from official repositories.
+After Ansible is installed on this node, Trantor starts treboforming the rest of the galaxy no matter how far away
+the other nodes are because... wait for it... ANSIBLE!!!!
+
+#### Terminus: CMDB host
+Every bit of knowledge of our infrastructure will be held here.
 
 ## Appendices
 
