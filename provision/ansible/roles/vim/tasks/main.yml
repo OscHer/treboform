@@ -1,2 +1,11 @@
 ---
-# tasks file for provision/ansible/roles/vim
+# TODO: Use git ansible module and check for releases/tags
+- name: Get vimrc
+  get_url: # Abstract user name into a variable
+    url: https://raw.githubusercontent.com/OscHer/dotfiles/main/vimrc
+    dest: /home/vagrant/.vimrc
+    backup: true # just in case
+    group: vagrant
+    mode: 0664
+    owner: vagrant
+
