@@ -14,7 +14,7 @@ Vagrant.configure("2") do |config|
 
   # Trantor: Ansible controller node
   NODE="trantor"
-  config.vm.define NODE do |machine|
+  config.vm.define NODE, primary: true do |machine|
     machine.vm.box = BOX_IMAGE
     machine.vm.hostname = NODE
 
