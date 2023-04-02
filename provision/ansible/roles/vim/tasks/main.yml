@@ -8,7 +8,7 @@
 
 - name: Get vimrc
   get_url: # Abstract user name into a variable
-    url: https://raw.githubusercontent.com/OscHer/dotfiles/main/vimrc
+    url: https://raw.githubusercontent.com/OscHer/dotfiles/main/vim/vimrc 
     dest: /home/vagrant/.vimrc
     backup: true # just in case
     group: vagrant
