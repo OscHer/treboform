@@ -1,12 +1,10 @@
 ---
 # TODO: Use git ansible module and check for releases/tags
 
-- name: Is vim installed?
+- name: Install dependencies
   package:
-    name: vim
+    name: ["vim", "git"] # TODO: separate this list to an external yml
     state: present
-
-#TODO: install bundle
 
 - name: Get vimrc
   get_url: # Abstract user name into a variable
@@ -16,4 +14,14 @@
     group: vagrant
     mode: 0664
     owner: vagrant
+
+# TODO: Separate vundle related tasks to an included file
+- name: git clone vundle repos
+  ansible.builtin.git:
+    # TODO: check bare parameter of this module
+    clone: true
+    dest: /home/vagrant/.vim/bundle/Vundle.vim
+    repo: https://github.com/VundleVim/Vundle.vim.git
+    version: master
+    # TODO: possibly I'll have to add github to *known_hosts*
 

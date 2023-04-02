@@ -1,7 +1,7 @@
 Role Name \# TODO: decide a name
 =========
 
-With this role you'll send your vim config onto a remote node in a declarative way.
+With this role you'll send your vim config into a remote node in a declarative way.
 
 Requirements
 ------------
@@ -17,6 +17,7 @@ Dependencies
 ------------
 Ansible modules
 * [Package](https://docs.ansible.com/ansible/latest/collections/ansible/builtin/package_module.html)
+* [Git](https://docs.ansible.com/ansible/latest/collections/community/general/github_repo_module.html)
 
 Example Playbook
 ----------------
