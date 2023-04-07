@@ -41,9 +41,10 @@
 - name: git clone vundle repos
   ansible.builtin.git:
     # TODO: check bare parameter of this module
+    # TODO: change ownership of this file tree
     clone: true
     dest: /home/vagrant/.vim/bundle/Vundle.vim
     repo: https://github.com/VundleVim/Vundle.vim.git
     version: master
-    # TODO: possibly I'll have to add github to *known_hosts*
-
+  become: yes
+  become_user: vagrant
