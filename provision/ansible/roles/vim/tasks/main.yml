@@ -1,5 +1,6 @@
 ---
 # TODO: Use git ansible module and check for releases/tags
+# TODO: everything in here will be refactored
 
 - name: Install dependencies
   package:
@@ -14,6 +15,27 @@
     group: vagrant
     mode: 0664
     owner: vagrant
+
+# TODO: every spelling task will be refactored into a separate yaml
+- name: create wordlist directory
+  file:
+    path: /home/vagrant/.vim/spell
+    state: directory
+    owner: vagrant
+    group: vagrant
+
+# TODO: refactor username into a variable
+- name: Deploy wordlists from github
+  get_url:
+    url: https://github.com/OscHer/dotfiles/blob/main/vim/vim/spell/{{ item }}?raw=true
+    dest: /home/vagrant/.vim/spell/
+    backup: false
+    owner: vagrant
+    group: vagrant
+    mode: 0664
+  loop: # TODO: git-clone-form this to increase elegance
+    - devel.utf-8.spl
+    - es.utf-8.spl
 
 # TODO: Separate vundle related tasks to an included file
 - name: git clone vundle repos

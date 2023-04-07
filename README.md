@@ -30,6 +30,7 @@ Right now, what's going on behind the scenes is:
 1. Vagrant looks for the box somewhere in the local host.
 2. If there's one, creates a VM; if not, vagrant looks for it in [its public repository](https://app.vagrantup.com/boxes/search).
 3. Once the instantiated VM is up and running starts the provisioning process.
+  1. At first Trantor node is fully provisioned to be an [ansible controll node](https://docs.ansible.com/ansible/latest/network/getting_started/basic_concepts.html#control-node)
 4. As a result we have a fully treboformed Type III Civilization and the magic begins.
 
 ### Assets
