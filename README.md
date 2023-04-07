@@ -48,6 +48,12 @@ Every bit of knowledge of our infrastructure will be held here.
 ## Appendices
 
 ### Style guidelines
+#### Metaproject
+There will be metadocumentation and related info which not belongs to the project itself
+but to to the experience gained while developing. That is a dossier you won't be giving
+to your client but saving it for your team as jumpstart.
+* meta/backlog.txt: grep-ped info from '# TODO' tags
+
 
 #### Backlog
 

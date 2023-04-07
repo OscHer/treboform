@@ -1,0 +1,3 @@
+TODO: create pre/post/whatever commit hook with "grep -Rns ...l"
+TODO: add csv format to backlog.txt with sed, awk or the like
+

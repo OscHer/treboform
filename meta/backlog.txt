@@ -1,0 +1,14 @@
+meta/improv.txt:1:TODO: create pre/post/whatever commit hook with "grep -Rns ...l"
+meta/improv.txt:2:TODO: add csv format to backlog.txt with sed, awk or the like
+provision/ansible/roles/vim/tasks/main.yml:2:# TODO: Use git ansible module and check for releases/tags
+provision/ansible/roles/vim/tasks/main.yml:3:# TODO: everything in here will be refactored
+provision/ansible/roles/vim/tasks/main.yml:8:    name: ["vim", "git"] # TODO: separate this list to an external yml
+provision/ansible/roles/vim/tasks/main.yml:20:# TODO: every spelling task will be refactored into a separate yaml
+provision/ansible/roles/vim/tasks/main.yml:28:# TODO: refactor username into a variable
+provision/ansible/roles/vim/tasks/main.yml:37:  loop: # TODO: git-clone-form this to increase elegance
+provision/ansible/roles/vim/tasks/main.yml:41:# TODO: Separate vundle related tasks to an included file
+provision/ansible/roles/vim/tasks/main.yml:44:    # TODO: check bare parameter of this module
+provision/ansible/roles/vim/tasks/main.yml:45:    # TODO: change ownership of this file tree
+provision/ansible/roles/vim/tasks/main.yml:53:# TODO: refactor user and user home dir
+provision/ansible/roles/vim/tasks/main.yml:66:# TODO: Refactor user, dir and whatever
+Vagrantfile:28:      # TODO: create inventory from Vagrantfile
