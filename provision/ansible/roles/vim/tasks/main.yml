@@ -59,8 +59,15 @@
   become: true
   failed_when: ( resultvim.rc not in [0,1] )
 
-# TODO: output result of installation
 - name: debug install vim
   debug:
     msg: "{{ resultvim }}"
-# TODO: deploy abbreviations.vim
+
+# TODO: Refactor user, dir and whatever
+- name: Deploy abbreviations.vim from remote repository
+  get_url:
+    url: https://raw.githubusercontent.com/OscHer/dotfiles/main/vim/vim/abbreviations.vim
+    dest: /home/vagrant/.vim/
+    backup: false
+    owner: vagrant
+    mode: 0644
