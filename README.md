@@ -73,6 +73,7 @@ Every time I've modified my main [Vagrantfile](https://developer.hashicorp.com/v
 ### Concepts
 
 * **Infrastructure:** Every layer or feature below any asset or functionality without which it couln't work. This must be understood as a relative term whatever SSMM influencers of the sacred brotherhood of standars say.
+* **Secondary logging:** Extra layer of users activity monitoring.
 
 ### Roadmap
 * Secondary logging
