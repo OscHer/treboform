@@ -45,6 +45,18 @@ the other nodes are because... wait for it... ANSIBLE!!!!
 #### Terminus: CMDB host
 Every bit of knowledge of our infrastructure will be held here.
 
+### Additional software
+#### Secondary logging
+Secondary logging is a bash based audit tool which logs every command executed in a shell
+or subshell no matter if it's an interactive terminal or not.
+
+At this moment will be deployed as a [shell script](provision/files/sl.sh) but in the future
+it will work as an ansible role.
+
+##### Statu Quo
+Secondary logging is deployed into **/etc/profile.d/sl.sh** and sourced from **/etc/profile** in order to
+be available for every user independently of his **bashrc**.
+
 ## Appendices
 
 ### Style guidelines

@@ -18,6 +18,9 @@ Vagrant.configure("2") do |config|
     machine.vm.box = BOX_IMAGE
     machine.vm.hostname = NODE
 
+    # Temporary synced folder for development purposes
+    machine.vm.synced_folder "provision/files/secondary/", "/etc/profile.d/"
+
     # Set this node as our controller node
     machine.vm.provision :ansible_local do |ansible_local|
       ansible_local.playbook = "provision/ansible/playbook.yml"
