@@ -1,7 +1,7 @@
-Role Name
+Git
 =========
 
-A brief description of the role goes here.
+Install Git and bash-git-prompt
 
 Requirements
 ------------
