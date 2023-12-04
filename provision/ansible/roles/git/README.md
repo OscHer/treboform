@@ -27,6 +27,13 @@ Including an example of how to use your role (for instance, with variables passe
       roles:
          - { role: username.rolename, x: 42 }
 
+Appendix
+--------
+* \# TODO: Install git
+    * \# TODO: Add installation for linux (yum and apt) with ansible roles
+* \# TODO: Install bash-git-prompt
+* \# TODO: Install git alias
+
 License
 -------
 
