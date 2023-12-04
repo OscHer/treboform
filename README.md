@@ -67,6 +67,19 @@ a backlog.csv.
 
 Adding 'C' before a commit message allows us to filter with grep without being unnecessary [baroque](https://www.conventionalcommits.org/en/v1.0.0/#specification).
 
+#### Alias
+```
+alias.s status -sb
+alias.rp push origin HEAD
+alias.visual !gitk & > /dev/null
+alias.d diff --unified=0
+alias.br branch --format='%(HEAD) %(color:yellow)%(refname:short)%(color:reset) - %(contents:subject) %(color:green)(%(committerdate:relative)) [%(authorname)]' --sort=-committerdate
+alias.alias config --get-regexp ^alias.
+alias.b branch
+alias.l log -n 15 --graph --pretty=format:'%C(auto)%h%d%Creset%C(cyan)(%cr, %C(green)%an)%Creset %s'
+alias.lg log -n 15 --graph --pretty=format:'%C(auto)%h%d%Creset%C(cyan)(%cr, %C(green)%an)%Creset %s' --all
+```
+
 #### Vagrant
 Every time I've modified my main [Vagrantfile](https://developer.hashicorp.com/vagrant/docs/vagrantfile) I've run a full test with `vagrant destroy -f && vagrant up`.
 

@@ -1,0 +1,8 @@
+# Ansible provisioning
+
+Main provision of this project is made with ansible-plabook in a declarative and
+idempotent way.
+
+## Roles
+* vim
+* bash-git-prompt
