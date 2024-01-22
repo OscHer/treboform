@@ -6,6 +6,6 @@ TERMINAL=$(who am i | awk '{print $2}') #This variable will show the terminal wh
 IP=$(who --ips | grep $TERMINAL | awk '{print $5}') #This variable will show the IP of the user.
 
 export PROMPT_COMMAND='logger -p local0.notice $(date "+%Y-%m-%d.%H:%M:%S") $FROM $AS $TERMINAL $IP $(pwd) $(history 1)' 
-##export PROMPT_COMMAND='logger -n XX -p local0.notice --tcp $(date "+%Y-%m-%d.%H:%M:%S") $FROM $AS $TERMINAL $IP $(pwd) $(history 1)' 
+##export PROMPT_COMMAND='logger -n XX -P 514 -p local0.notice --tcp $(date "+%Y-%m-%d.%H:%M:%S") $FROM $AS $TERMINAL $IP $(pwd) $(history 1)' 
 
 
