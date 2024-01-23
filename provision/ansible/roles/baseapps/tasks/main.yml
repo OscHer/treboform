@@ -1,0 +1,8 @@
+---
+# tasks file for baseapps
+
+- name: Install dependencies
+  package:
+    name: ["tmux"]
+    state: present
+

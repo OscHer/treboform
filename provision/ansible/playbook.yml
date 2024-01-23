@@ -3,6 +3,7 @@
   become: yes
   roles:
     - vim
+    - baseapps
   tasks:
     - name: Say hi
       ping:
