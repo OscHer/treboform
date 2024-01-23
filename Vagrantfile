@@ -19,6 +19,7 @@ Vagrant.configure("2") do |config|
     machine.vm.hostname = NODE
 
     # Temporary synced folder for development purposes
+    # TODO: change this into a specific ansible role for installing secondary logging
     machine.vm.synced_folder "provision/files/secondary/", "/etc/profile.d/"
 
     # Set this node as our controller node
