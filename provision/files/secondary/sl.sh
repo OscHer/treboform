@@ -8,7 +8,7 @@ IP=$(who am i | awk '{print $5}') #This variable will show the IP of the user.
 HISTORY=$(history 1 | tr -s " " | cut -f 3- -d " " -s)
 
 
-export PROMPT_COMMAND='logger -p local0.notice $(date "+%Y-%m-%d.%H:%M:%S") $FROM $AS $TERMINAL $IP $(pwd) $HISTORY' 
+export PROMPT_COMMAND='logger -p local0.notice $FROM $AS $TERMINAL $IP $(pwd) $HISTORY' 
 ##export PROMPT_COMMAND='logger -n XX -P 514 -p local0.notice --tcp $(date "+%Y-%m-%d.%H:%M:%S") $FROM $AS $TERMINAL $IP $(pwd) $(history 1)'
 
 
