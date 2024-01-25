@@ -1,3 +1,0 @@
-# Secondary Logging Output Fields Descriptor
-
-Date (with a Year-Month-Day.Hour:Minute:Second format) - User logged - Effective user - Terminal - IP - Working directory - Command
