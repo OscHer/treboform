@@ -2,13 +2,13 @@
 
 ## Index
 
-    Description
-    Snap-in Files
-        Server's Snap-in Files
-        Clients' Snap-in Files
-    Output Descriptor
-    Last Update
-    Author
+Description
+Snap-in Files
+    Server's Snap-in Files
+    Clients' Snap-in Files
+Output Descriptor
+Last Update
+Author
     
 ## Description
 
