@@ -36,9 +36,9 @@ Vagrant.configure("2") do |config|
   NODE="Scadrial"
   config.vm.define NODE do |machine|
     machine.vm.box = BOX_IMAGE
-    machine.vm.hostname = NODE
+    machine.vm.hostname = NODE 
     
-    config.vm.network "private_network", ip: "192.168.56.2"
+    machine.vm.network "private_network", ip: "192.168.56.2"
   
   # Temporary synced folder for development purposes
     machine.vm.synced_folder "provision/files/secondary/server/profile.d", "/etc/profile.d/"
@@ -55,12 +55,12 @@ Vagrant.configure("2") do |config|
   end
 
  #Roshar: Tester for the secondary log
- NODE="Roshar"
+  NODE="Roshar"
   config.vm.define NODE do |machine|
     machine.vm.box = BOX_IMAGE
     machine.vm.hostname = NODE
-    
-    config.vm.network "private_network", ip: "192.168.56.3"
+     
+    machine.vm.network "private_network", ip: "192.168.56.3"
   
   # Temporary synced folder for development purposes
     machine.vm.synced_folder "provision/files/secondary/client/profile.d", "/etc/profile.d/"
