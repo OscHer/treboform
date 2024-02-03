@@ -34,6 +34,11 @@ Right now, what's going on behind the scenes is:
 4. As a result we have a fully treboformed Type III Civilization and the magic begins.
 
 ### Assets
+
+#### Anacreonte
+**Anacreonte** is a provisional log collector node that, for the moment, just ingests ***secondary logging*** logs and 
+classifies them in a somehow logic way.
+
 #### Trantor: Ansible controller node
 **Trantor** will be our [Ansible control node](https://docs.ansible.com/ansible/latest/network/getting_started/basic_concepts.html). Our strategy consists in a centralized bastion
 to launch our configuration manager to every other node in our galaxy (not pun intended, or is it?).
@@ -101,10 +106,12 @@ Every time I've modified my main [Vagrantfile](https://developer.hashicorp.com/v
 * **Secondary logging:** Extra layer of users activity monitoring.
 
 ### Roadmap
-* Secondary logging
+
 * [GLPI](https://glpi-project.org/) as CMDB
 * [ELK](https://www.elastic.co/es/) as monitoring and alerting tool
 * [Rsyslog](https://www.rsyslog.com/) collector.
+    * Secondary logging
+       * \# TODO-Oriol: Link previous line to Secondary logging README.md
     - Dedicated server
     - Standarized rsylog metrics
     - Standarized APM metrics
