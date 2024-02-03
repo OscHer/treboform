@@ -37,7 +37,7 @@ Vagrant.configure("2") do |config|
 
   # Anacreonte: Provisional log collector.
   #  - secondary logging
-  NODE="Anacreonte"
+  NODE="anacreonte"
   config.vm.define NODE do |machine|
     machine.vm.box = BOX_IMAGE
     machine.vm.hostname = NODE 
@@ -59,13 +59,13 @@ Vagrant.configure("2") do |config|
     end
   end
 
- #Roshar: Tester for the secondary log
-  NODE="Roshar"
+ # Roshar: Tester for the secondary log
+  NODE="roshar"
   config.vm.define NODE do |machine|
     machine.vm.box = BOX_IMAGE
     machine.vm.hostname = NODE
      
-    machine.vm.network "private_network", ip: "192.168.56.3"
+    # machine.vm.network "private_network", ip: "192.168.56.3"
   
   # Temporary synced folder for development purposes
     machine.vm.synced_folder "provision/files/secondary/client/profile.d", "/etc/profile.d/"
