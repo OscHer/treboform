@@ -12,6 +12,7 @@ Vagrant.configure("2") do |config|
     machine.vm.hostname = NODE
   end
 
+
   # Trantor: Ansible controller node
   NODE="trantor"
   config.vm.define NODE, primary: true do |machine|
@@ -33,15 +34,18 @@ Vagrant.configure("2") do |config|
     end
   end
 
- #Scadrial: Node that recollects all the secondary logs
-  NODE="Scadrial"
+
+  # Anacreonte: Provisional log collector.
+  #  - secondary logging
+  NODE="Anacreonte"
   config.vm.define NODE do |machine|
     machine.vm.box = BOX_IMAGE
     machine.vm.hostname = NODE 
     
-    machine.vm.network "private_network", ip: "192.168.56.2"
+    # machine.vm.network "private_network", ip: "192.168.56.2"
   
-  # Temporary synced folder for development purposes
+    # Temporary synced folder for development purposes
+    # TODO: change this provision to Ansible provisioning with templates. Divide and conquer if needed
     machine.vm.synced_folder "provision/files/secondary/server/profile.d", "/etc/profile.d/"
     machine.vm.synced_folder "provision/files/secondary/server/rsyslog.d", "/etc/rsyslog.d/"
     
