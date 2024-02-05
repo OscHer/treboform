@@ -34,6 +34,11 @@ Right now, what's going on behind the scenes is:
 4. As a result we have a fully treboformed Type III Civilization and the magic begins.
 
 ### Assets
+
+#### Anacreonte
+**Anacreonte** is a provisional log collector node that, for the moment, just ingests ***secondary logging*** logs and 
+classifies them in a somehow logic way.
+
 #### Trantor: Ansible controller node
 **Trantor** will be our [Ansible control node](https://docs.ansible.com/ansible/latest/network/getting_started/basic_concepts.html). Our strategy consists in a centralized bastion
 to launch our configuration manager to every other node in our galaxy (not pun intended, or is it?).
@@ -44,6 +49,18 @@ the other nodes are because... wait for it... ANSIBLE!!!!
 
 #### Terminus: CMDB host
 Every bit of knowledge of our infrastructure will be held here.
+
+### Additional software
+#### Secondary logging
+Secondary logging is a bash based audit tool which logs every command executed in a shell
+or subshell no matter if it's an interactive terminal or not.
+
+At this moment will be deployed as a [shell script](provision/files/sl.sh) but in the future
+it will work as an ansible role.
+
+##### Statu Quo
+Secondary logging is deployed into **/etc/profile.d/sl.sh** and sourced from **/etc/profile** in order to
+be available for every user independently of his **bashrc**.
 
 ## Appendices
 
@@ -67,18 +84,37 @@ a backlog.csv.
 
 Adding 'C' before a commit message allows us to filter with grep without being unnecessary [baroque](https://www.conventionalcommits.org/en/v1.0.0/#specification).
 
+#### Alias
+```
+alias.s status -sb
+alias.rp push origin HEAD
+alias.visual !gitk & > /dev/null
+alias.d diff --unified=0
+alias.br branch --format='%(HEAD) %(color:yellow)%(refname:short)%(color:reset) - %(contents:subject) %(color:green)(%(committerdate:relative)) [%(authorname)]' --sort=-committerdate
+alias.alias config --get-regexp ^alias.
+alias.b branch
+alias.l log -n 15 --graph --pretty=format:'%C(auto)%h%d%Creset%C(cyan)(%cr, %C(green)%an)%Creset %s'
+alias.lg log -n 15 --graph --pretty=format:'%C(auto)%h%d%Creset%C(cyan)(%cr, %C(green)%an)%Creset %s' --all
+```
+
 #### Vagrant
 Every time I've modified my main [Vagrantfile](https://developer.hashicorp.com/vagrant/docs/vagrantfile) I've run a full test with `vagrant destroy -f && vagrant up`.
 
 ### Concepts
 
 * **Infrastructure:** Every layer or feature below any asset or functionality without which it couln't work. This must be understood as a relative term whatever SSMM influencers of the sacred brotherhood of standars say.
+* **Secondary logging:** Extra layer of users activity monitoring.
 
 ### Roadmap
-* Secondary logging
+
 * [GLPI](https://glpi-project.org/) as CMDB
 * [ELK](https://www.elastic.co/es/) as monitoring and alerting tool
 * [Rsyslog](https://www.rsyslog.com/) collector.
+    * Secondary logging
+        * \# TODO-Oriol: Link previous line to Secondary logging README.md
+        * \# TODO-Oriol: extend Secondary logging README.md explaining top-down how it works. 
+        * \# TODO-Oriol: create documentation for backlog managing with "TODO" tag
+        * \# TODO-Oriol: expresso, black, no sugar, no nothing. ASAP.
     - Dedicated server
     - Standarized rsylog metrics
     - Standarized APM metrics
