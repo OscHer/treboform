@@ -110,11 +110,10 @@ Every time I've modified my main [Vagrantfile](https://developer.hashicorp.com/v
 * [GLPI](https://glpi-project.org/) as CMDB
 * [ELK](https://www.elastic.co/es/) as monitoring and alerting tool
 * [Rsyslog](https://www.rsyslog.com/) collector.
-    * Secondary logging
+    * [Secondary logging] (provision/files/secondary/README.md)
         * \# TODO-Oriol: Link previous line to Secondary logging README.md
         * \# TODO-Oriol: extend Secondary logging README.md explaining top-down how it works. 
         * \# TODO-Oriol: create documentation for backlog managing with "TODO" tag
-        * \# TODO-Oriol: expresso, black, no sugar, no nothing. ASAP.
     - Dedicated server
     - Standarized rsylog metrics
     - Standarized APM metrics
