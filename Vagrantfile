@@ -1,23 +1,20 @@
 # -*- mode: ruby -*-
 # vi: set ft=ruby :
 
+# TODO: using debian vagrant boxes creates a new dependency:
+# you must use virtualbox and no other hypervisor technology.
+# Study and refactor this.
+
+
 BOX_IMAGE = "debian/testing64"
 
 Vagrant.configure("2") do |config|
-  
-  # Terminus: GLPI node
-  NODE="terminus"
-  config.vm.define NODE do |machine|
-    machine.vm.box = BOX_IMAGE
-    machine.vm.hostname = NODE
-  end
-
 
   # Trantor: Ansible controller node
   NODE="trantor"
   config.vm.define NODE, primary: true do |machine|
     machine.vm.box = BOX_IMAGE
-    machine.vm.hostname = NODE
+    machine.vm.hostname = "trantor"
 
     # Temporary synced folder for development purposes
     # TODO: change this into a specific ansible role for installing secondary logging
@@ -34,16 +31,20 @@ Vagrant.configure("2") do |config|
     end
   end
 
+  # Terminus: GLPI node
+  NODE="terminus"
+  config.vm.define NODE do |machine|
+    machine.vm.box = BOX_IMAGE
+    machine.vm.hostname = "terminus"
+  end
 
   # Anacreonte: Provisional log collector.
   #  - secondary logging
   NODE="anacreonte"
   config.vm.define NODE do |machine|
     machine.vm.box = BOX_IMAGE
-    machine.vm.hostname = NODE 
+    machine.vm.hostname = "anacreonte"
     
-    # machine.vm.network "private_network", ip: "192.168.56.2"
-  
     # Temporary synced folder for development purposes
     # TODO: change this provision to Ansible provisioning with templates. Divide and conquer if needed
     machine.vm.synced_folder "provision/files/secondary/server/profile.d", "/etc/profile.d/"
@@ -59,15 +60,15 @@ Vagrant.configure("2") do |config|
     end
   end
 
- # Roshar: Tester for the secondary log
+  # Roshar: Tester for the secondary log
   NODE="roshar"
   config.vm.define NODE do |machine|
     machine.vm.box = BOX_IMAGE
-    machine.vm.hostname = NODE
+    machine.vm.hostname = "roshar" 
      
     # machine.vm.network "private_network", ip: "192.168.56.3"
   
-  # Temporary synced folder for development purposes
+    # Temporary synced folder for development purposes
     machine.vm.synced_folder "provision/files/secondary/client/profile.d", "/etc/profile.d/"
     machine.vm.synced_folder "provision/files/secondary/client/rsyslog.d", "/etc/rsyslog.d/"
 
@@ -80,5 +81,4 @@ Vagrant.configure("2") do |config|
       ansible_limit = "all"
     end
   end
-
 end
