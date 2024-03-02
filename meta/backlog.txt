@@ -1,14 +1,30 @@
-meta/improv.txt:1:TODO: create pre/post/whatever commit hook with "grep -Rns ...l"
-meta/improv.txt:2:TODO: add csv format to backlog.txt with sed, awk or the like
-provision/ansible/roles/vim/tasks/main.yml:2:# TODO: Use git ansible module and check for releases/tags
-provision/ansible/roles/vim/tasks/main.yml:3:# TODO: everything in here will be refactored
-provision/ansible/roles/vim/tasks/main.yml:8:    name: ["vim", "git"] # TODO: separate this list to an external yml
-provision/ansible/roles/vim/tasks/main.yml:20:# TODO: every spelling task will be refactored into a separate yaml
-provision/ansible/roles/vim/tasks/main.yml:28:# TODO: refactor username into a variable
-provision/ansible/roles/vim/tasks/main.yml:37:  loop: # TODO: git-clone-form this to increase elegance
-provision/ansible/roles/vim/tasks/main.yml:41:# TODO: Separate vundle related tasks to an included file
-provision/ansible/roles/vim/tasks/main.yml:44:    # TODO: check bare parameter of this module
-provision/ansible/roles/vim/tasks/main.yml:45:    # TODO: change ownership of this file tree
-provision/ansible/roles/vim/tasks/main.yml:53:# TODO: refactor user and user home dir
-provision/ansible/roles/vim/tasks/main.yml:66:# TODO: Refactor user, dir and whatever
-Vagrantfile:28:      # TODO: create inventory from Vagrantfile
+/home/uri/treboform/meta/improv.txt:1:TODO: create pre/post/whatever commit hook with "grep -Rns ...l"
+/home/uri/treboform/meta/improv.txt:2:TODO: add csv format to backlog.txt with sed, awk or the like
+/home/uri/treboform/provision/files/secondary/server/rsyslog.d/rsys.conf:9:#TODO: 
+/home/uri/treboform/provision/ansible/roles/vim/tasks/main.yml:2:# TODO: Use git ansible module and check for releases/tags
+/home/uri/treboform/provision/ansible/roles/vim/tasks/main.yml:3:# TODO: everything in here will be refactored
+/home/uri/treboform/provision/ansible/roles/vim/tasks/main.yml:8:    name: ["vim", "git"] # TODO: separate this list to an external yml
+/home/uri/treboform/provision/ansible/roles/vim/tasks/main.yml:20:# TODO: every spelling task will be refactored into a separate yaml
+/home/uri/treboform/provision/ansible/roles/vim/tasks/main.yml:28:# TODO: refactor username into a variable
+/home/uri/treboform/provision/ansible/roles/vim/tasks/main.yml:37:  loop: # TODO: git-clone-form this to increase elegance
+/home/uri/treboform/provision/ansible/roles/vim/tasks/main.yml:41:# TODO: Separate vundle related tasks to an included file
+/home/uri/treboform/provision/ansible/roles/vim/tasks/main.yml:44:    # TODO: check bare parameter of this module
+/home/uri/treboform/provision/ansible/roles/vim/tasks/main.yml:45:    # TODO: change ownership of this file tree
+/home/uri/treboform/provision/ansible/roles/vim/tasks/main.yml:53:# TODO: refactor user and user home dir
+/home/uri/treboform/provision/ansible/roles/vim/tasks/main.yml:66:# TODO: Refactor user, dir and whatever
+/home/uri/treboform/provision/ansible/roles/vim/README.md:1:Role Name \# TODO: decide a name
+/home/uri/treboform/provision/ansible/roles/vim/README.md:14:\# TODO: WIP
+/home/uri/treboform/provision/ansible/roles/vim/README.md:25:\# TODO: WIP
+/home/uri/treboform/provision/ansible/roles/git/README.md:32:* \# TODO: Install git
+/home/uri/treboform/provision/ansible/roles/git/README.md:33:    * \# TODO: Add installation for linux (yum and apt) with ansible roles
+/home/uri/treboform/provision/ansible/roles/git/README.md:34:* \# TODO: Install bash-git-prompt
+/home/uri/treboform/provision/ansible/roles/git/README.md:35:* \# TODO: Install git alias
+/home/uri/treboform/provision/ansible/roles/baseapps/README.md:11:\# TODO: check and type in here
+/home/uri/treboform/provision/ansible/roles/baseapps/README.md:18:\# TODO: create an ansible role for managing potential repositories not listed in the default sources.list
+/home/uri/treboform/README.md:72:* meta/backlog.txt: grep-ped info from '# TODO' tags
+/home/uri/treboform/README.md:79:So, comments like `# TODO-oscar: abstract this onto that` make a good balance between strict and easy. Plus, you can
+/home/uri/treboform/README.md:114:        * \# TODO-Oriol: extend Secondary logging README.md explaining top-down how it works. 
+/home/uri/treboform/README.md:115:        * \# TODO-Oriol: create documentation for backlog managing with "TODO" tag
+/home/uri/treboform/Vagrantfile:23:    # TODO: change this into a specific ansible role for installing secondary logging
+/home/uri/treboform/Vagrantfile:33:      # TODO: create inventory from Vagrantfile
+/home/uri/treboform/Vagrantfile:48:    # TODO: change this provision to Ansible provisioning with templates. Divide and conquer if needed
