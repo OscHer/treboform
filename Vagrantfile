@@ -60,25 +60,4 @@ Vagrant.configure("2") do |config|
     end
   end
 
-  # Roshar: Tester for the secondary log
-  NODE="roshar"
-  config.vm.define NODE do |machine|
-    machine.vm.box = BOX_IMAGE
-    machine.vm.hostname = "roshar" 
-     
-    # machine.vm.network "private_network", ip: "192.168.56.3"
-  
-    # Temporary synced folder for development purposes
-    machine.vm.synced_folder "provision/files/secondary/client/profile.d", "/etc/profile.d/"
-    machine.vm.synced_folder "provision/files/secondary/client/rsyslog.d", "/etc/rsyslog.d/"
-
-    # Set this node as our controller node
-    machine.vm.provision :ansible_local do |ansible_local|
-      ansible_local.playbook = "provision/ansible/playbook.yml"
-      #ansible_local.verbose = true
-      ansible_local.install = true
-      ansible_local.install_mode = :default # Install ansible from official repositories
-      ansible_limit = "all"
-    end
-  end
 end
