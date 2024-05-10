@@ -18,7 +18,7 @@ Vagrant.configure("2") do |config|
 
     # Temporary synced folder for development purposes
     # TODO: change this into a specific ansible role for installing secondary logging
-    machine.vm.synced_folder "provision/files/secondary/", "/etc/profile.d/"
+    # machine.vm.synced_folder "provision/files/secondary/", "/etc/profile.d/"
 
     # Set this node as our controller node
     machine.vm.provision :ansible_local do |ansible_local|
@@ -60,4 +60,5 @@ Vagrant.configure("2") do |config|
     end
   end
 
+  # Roshar: Tester for the secondary log
 end
