@@ -16,10 +16,6 @@ Vagrant.configure("2") do |config|
     machine.vm.box = BOX_IMAGE
     machine.vm.hostname = "trantor"
 
-    # Temporary synced folder for development purposes
-    # TODO: change this into a specific ansible role for installing secondary logging
-    # machine.vm.synced_folder "provision/files/secondary/", "/etc/profile.d/"
-
     # Set this node as our controller node
     machine.vm.provision :ansible_local do |ansible_local|
       ansible_local.playbook = "provision/ansible/playbook.yml"
@@ -39,16 +35,10 @@ Vagrant.configure("2") do |config|
   end
 
   # Anacreonte: Provisional log collector.
-  #  - secondary logging
   NODE="anacreonte"
   config.vm.define NODE do |machine|
     machine.vm.box = BOX_IMAGE
     machine.vm.hostname = "anacreonte"
-    
-    # Temporary synced folder for development purposes
-    # TODO: change this provision to Ansible provisioning with templates. Divide and conquer if needed
-    machine.vm.synced_folder "provision/files/secondary/server/profile.d", "/etc/profile.d/"
-    machine.vm.synced_folder "provision/files/secondary/server/rsyslog.d", "/etc/rsyslog.d/"
     
     # Set this node as our controller node
     machine.vm.provision :ansible_local do |ansible_local|
@@ -59,6 +49,4 @@ Vagrant.configure("2") do |config|
       ansible_limit = "all"
     end
   end
-
-  # Roshar: Tester for the secondary log
 end
