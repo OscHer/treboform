@@ -1,0 +1,8 @@
+---
+management_group:
+  - sysadmin
+
+management_user:
+  - sysadmin
+  - oscar
+  

@@ -37,11 +37,14 @@ Right now, what's going on behind the scenes is:
 #### Topology
 ![Topological diagram](topology.drawio.png)
 
-#### Anacreonte
+#### Managers
+Manager nodes supply a centralized zone where sysadmin, auditors, DevSecOps can get raw information or give orders.
+
+##### Anacreonte
 **Anacreonte** is a provisional log collector node that, for the moment, just ingests logs and 
 classifies them in a somehow logic way.
 
-#### Trantor: Ansible controller node
+##### Trantor: Ansible controller node
 **Trantor** will be our [Ansible control node](https://docs.ansible.com/ansible/latest/network/getting_started/basic_concepts.html). Our strategy consists in a centralized bastion
 to launch our configuration manager to every other node in our galaxy (not pun intended, or is it?).
 
@@ -49,8 +52,13 @@ During the Vagrantfile provisioning, ansible is installed with *:default* mode; 
 After Ansible is installed on this node, Trantor starts treboforming the rest of the galaxy no matter how far away
 the other nodes are because... wait for it... ANSIBLE!!!!
 
-#### Terminus: CMDB host
+##### Terminus: CMDB host
 Every bit of knowledge of our infrastructure will be held here.
+
+#### Users and groups
+At this stage of the project two main zones are distinguished:
+ - [Management nodes](#Managers)
+ - Managed node
 
 ### Additional software
 #### Secondary logging
@@ -122,4 +130,5 @@ Every time I've modified my main [Vagrantfile](https://developer.hashicorp.com/v
 * Dotfiles
 
 ### Backlog
-* Decrease font size of every asset in the topological diagram
+* TODO-topology: Decrease font size of every asset in the topological diagram
+* TODO-topology: Organize layer and assets (add user and group layer)  

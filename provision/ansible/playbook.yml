@@ -1,10 +1,17 @@
 ---
 - hosts: all
   become: yes
+  vars_files:
+    - playbook/group_vars/main.yml 
   roles:
     # TODO-ansible: create a user sysadmin or the like to be the default super user for our tasks
     - vim
     - baseapps
+
   tasks:
     - name: Say hi
       ping:
+
+    - name: checking vars included
+      debug:
+        msg: "Hi, i included this var {{ management_group[0] }}"
