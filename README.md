@@ -36,7 +36,7 @@ Right now, what's going on behind the scenes is:
 ### Assets
 
 #### Anacreonte
-**Anacreonte** is a provisional log collector node that, for the moment, just ingests ***secondary logging*** logs and 
+**Anacreonte** is a provisional log collector node that, for the moment, just ingests logs and 
 classifies them in a somehow logic way.
 
 #### Trantor: Ansible controller node
