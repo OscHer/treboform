@@ -2,6 +2,7 @@
 - hosts: all
   become: yes
   roles:
+    # TODO-ansible: create a user sysadmin or the like to be the default super user for our tasks
     - vim
     - baseapps
   tasks:
