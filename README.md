@@ -120,3 +120,6 @@ Every time I've modified my main [Vagrantfile](https://developer.hashicorp.com/v
     - Standarized APM metrics
     - Standarized Python logs with [logging](https://docs.python.org/3/library/logging.html)
 * Dotfiles
+
+### Backlog
+* Decrease font size of every asset in the topological diagram
