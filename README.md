@@ -34,6 +34,8 @@ Right now, what's going on behind the scenes is:
 4. As a result we have a fully treboformed Type III Civilization and the magic begins.
 
 ### Assets
+#### Topology
+![Topological diagram](topology.drawio.png)
 
 #### Anacreonte
 **Anacreonte** is a provisional log collector node that, for the moment, just ingests logs and 
