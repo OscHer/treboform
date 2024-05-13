@@ -12,6 +12,3 @@
     - name: Say hi
       ping:
 
-    - name: checking vars included
-      debug:
-        msg: "Hi, i included this var {{ management_group[0] }}"
