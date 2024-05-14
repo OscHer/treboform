@@ -5,4 +5,8 @@ management_group:
 management_user:
   - sysadmin
   - oscar
-  
+
+managed_group:
+  - sysadmin
+managed_user:
+  - ansible_user

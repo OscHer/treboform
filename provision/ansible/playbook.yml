@@ -7,6 +7,7 @@
     # TODO-ansible: create a user sysadmin or the like to be the default super user for our tasks
     - vim
     - baseapps
+    - diaspora
 
   tasks:
     - name: Say hi
