@@ -39,14 +39,5 @@ Vagrant.configure("2") do |config|
   config.vm.define NODE do |machine|
     machine.vm.box = BOX_IMAGE
     machine.vm.hostname = "anacreonte"
-    
-    # Set this node as our controller node
-    machine.vm.provision :ansible_local do |ansible_local|
-      ansible_local.playbook = "provision/ansible/playbook.yml"
-      #ansible_local.verbose = true
-      ansible_local.install = true
-      ansible_local.install_mode = :default # Install ansible from official repositories
-      ansible_limit = "all"
-    end
   end
 end
