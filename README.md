@@ -111,6 +111,7 @@ Every time I've modified my main [Vagrantfile](https://developer.hashicorp.com/v
 
 * [GLPI](https://glpi-project.org/) as CMDB
 * [ELK](https://www.elastic.co/es/) as monitoring and alerting tool
+    * [FreeIPA](https://www.freeipa.org)
 * [Rsyslog](https://www.rsyslog.com/) collector.
     * [Secondary logging](provision/files/secondary/README.md)
         * \# TODO-Oriol: extend Secondary logging README.md explaining top-down how it works. 
