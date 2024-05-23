@@ -13,3 +13,10 @@
     - name: Say hi
       ping:
 
+    - name: Sysadmin user created
+      ansible.builtin.user:
+        name: '{{ management_user }}'
+        comment: Service user for automatism purpose
+        state: present
+        create_home: yes
+        generate_ssh_key: true

@@ -1,10 +1,2 @@
 ---
-management_group:
-  - sysadmin
-management_user:
-  - oscar
-
-managed_group:
-  - sysadmin
-managed_user:
-  - ansible_user
+management_user: sysadmin

@@ -5,6 +5,7 @@
 # you must use virtualbox and no other hypervisor technology.
 # Study and refactor this.
 
+# TODO: refactor initial VMs creation to a ruby array: https://community.ibm.com/community/user/cloud/blogs/stephan-bester/2022/07/05/use-vagrant-to-create-a-centos-environment-for-ans
 
 BOX_IMAGE = "debian/testing64"
 
