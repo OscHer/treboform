@@ -1,6 +1,5 @@
 ---
-# TODO: Use git ansible module and check for releases/tags
-# TODO: everything in here will be refactored
+# TODO-ansible: everything in here will be refactored. https://stackoverflow.com/questions/33672491/how-to-use-ansible-to-provision-vim-vundle-plugin
 # DOCS: https://stackoverflow.com/questions/33672491/how-to-use-ansible-to-provision-vim-vundle-plugin
 
 - name: Install dependencies
@@ -9,7 +8,7 @@
     state: present
 
 - name: Get vimrc
-  get_url: # Abstract user name into a variable
+  get_url: # TODO-ansible: Abstract user name into a variable
     url: https://raw.githubusercontent.com/OscHer/dotfiles/main/vim/vimrc 
     dest: /home/vagrant/.vimrc
     backup: true # just in case
@@ -17,7 +16,6 @@
     mode: 0664
     owner: vagrant
 
-# TODO: every spelling task will be refactored into a separate yaml
 - name: create wordlist directory
   file:
     path: /home/vagrant/.vim/spell
@@ -25,7 +23,7 @@
     owner: vagrant
     group: vagrant
 
-# TODO: refactor username into a variable
+# TODO-ansible: refactor username into a variable
 - name: Deploy wordlists from github
   get_url:
     url: https://github.com/OscHer/dotfiles/blob/main/vim/vim/spell/{{ item }}?raw=true
@@ -34,11 +32,11 @@
     owner: vagrant
     group: vagrant
     mode: 0664
-  loop: # TODO: git-clone-form this to increase elegance
+  loop: # TODO-ansible: git-clone-form this to increase elegance
     - devel.utf-8.spl
     - es.utf-8.spl
 
-# TODO: Separate vundle related tasks to an included file
+# TODO-ansible: Separate vundle related tasks to an included file
 - name: git clone vundle repos
   ansible.builtin.git:
     # TODO: check bare parameter of this module
@@ -50,7 +48,7 @@
   become: yes
   become_user: vagrant
 
-# TODO: refactor user and user home dir
+# TODO-ansible: refactor user and user home dir
 - name: install plugins
   ansible.builtin.shell: >
     echo -ne '\n' | vim -E -s -c "source /home/vagrant/.vimrc" -c PluginInstall -c qa

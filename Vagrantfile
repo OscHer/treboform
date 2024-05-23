@@ -5,6 +5,7 @@
 # you must use virtualbox and no other hypervisor technology.
 # Study and refactor this.
 
+# TODO: refactor initial VMs creation to a ruby array: https://community.ibm.com/community/user/cloud/blogs/stephan-bester/2022/07/05/use-vagrant-to-create-a-centos-environment-for-ans
 
 BOX_IMAGE = "debian/testing64"
 
@@ -39,14 +40,5 @@ Vagrant.configure("2") do |config|
   config.vm.define NODE do |machine|
     machine.vm.box = BOX_IMAGE
     machine.vm.hostname = "anacreonte"
-    
-    # Set this node as our controller node
-    machine.vm.provision :ansible_local do |ansible_local|
-      ansible_local.playbook = "provision/ansible/playbook.yml"
-      #ansible_local.verbose = true
-      ansible_local.install = true
-      ansible_local.install_mode = :default # Install ansible from official repositories
-      ansible_limit = "all"
-    end
   end
 end
