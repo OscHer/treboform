@@ -122,8 +122,6 @@ Every time I've modified my main [Vagrantfile](https://developer.hashicorp.com/v
     * [FreeIPA](https://www.freeipa.org)
 * [Rsyslog](https://www.rsyslog.com/) collector.
     * [Secondary logging](provision/files/secondary/README.md)
-        * \# TODO-Oriol: extend Secondary logging README.md explaining top-down how it works. 
-        * \# TODO-Oriol: create documentation for backlog managing with "TODO" tag
     - Dedicated server
     - Standarized rsylog metrics
     - Standarized APM metrics
@@ -131,5 +129,6 @@ Every time I've modified my main [Vagrantfile](https://developer.hashicorp.com/v
 * Dotfiles
 
 ### Backlog
+* TODO-ansible: create user ansible for manager and managed nodes
 * TODO-topology: Decrease font size of every asset in the topological diagram
 * TODO-topology: Organize layer and assets (add user and group layer)  
