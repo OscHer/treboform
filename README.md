@@ -129,6 +129,7 @@ Every time I've modified my main [Vagrantfile](https://developer.hashicorp.com/v
 * Dotfiles
 
 ### Backlog
+* TODO-vagrant: Create vagrant metrics alias https://developer.hashicorp.com/vagrant/docs/cli/aliases
 * TODO-ansible: create user ansible for manager and managed nodes
 * TODO-topology: Decrease font size of every asset in the topological diagram
 * TODO-topology: Organize layer and assets (add user and group layer)  
