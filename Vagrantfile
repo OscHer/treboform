@@ -19,7 +19,7 @@ Vagrant.configure("2") do |config|
 
     # Set this node as our controller node
     machine.vm.provision :ansible_local do |ansible_local|
-      ansible_local.playbook = "provision/ansible/playbook.yml"
+      ansible_local.playbook = "provision/ansible/vagrant_provision.yml"
       ansible_local.verbose = false
       ansible_local.install = true
       ansible_local.install_mode = :default # Install ansible from official repositories
