@@ -10,6 +10,8 @@ BOX_IMAGE = "debian/testing64"
 
 Vagrant.configure("2") do |config|
 
+  config.vm.box_check_update = false
+
   # Trantor: Ansible controller node
   NODE="trantor"
   config.vm.define NODE, primary: true do |machine|
