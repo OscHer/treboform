@@ -1,8 +1,8 @@
 ---
 # tasks file for baseapps
 
-- name: Install dependencies
+- name: Install base apps
   package:
-    name: ["tmux"]
+    name: "{{ packages_to_install}}"
     state: present
 

@@ -60,6 +60,9 @@ At this stage of the project two main zones are distinguished:
  - [Management nodes](#Managers)
  - Managed node
 
+Since ansible adds the dependency of having a *sudoable* with *NOPASSWD* we have to deploy
+our *ansible_user* prior to full unnatended management.
+
 ### Additional software
 #### Secondary logging
 Secondary logging is a bash based audit tool which logs every command executed in a shell

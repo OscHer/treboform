@@ -1,2 +1,8 @@
 ---
 # vars file for baseapps
+packages_to_install:
+  - git
+  - curl
+  - tmux
+  - vim
+  - sysstat

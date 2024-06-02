@@ -3,7 +3,7 @@
 # DOCS: https://stackoverflow.com/questions/33672491/how-to-use-ansible-to-provision-vim-vundle-plugin
 
 - name: Install dependencies
-  package:
+  ansible.builtin.package:
     name: ["vim", "git"] # TODO: separate this list to an external yml
     state: present
 

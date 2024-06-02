@@ -11,34 +11,30 @@ BOX_IMAGE = "debian/testing64"
 
 Vagrant.configure("2") do |config|
 
-  # Trantor: Ansible controller node
-  NODE="trantor"
-  config.vm.define NODE, primary: true do |machine|
-    machine.vm.box = BOX_IMAGE
-    machine.vm.hostname = "trantor"
+  config.vm.box_check_update = false
 
-    # Set this node as our controller node
-    machine.vm.provision :ansible_local do |ansible_local|
-      ansible_local.playbook = "provision/ansible/playbook.yml"
-      #ansible_local.verbose = true
-      ansible_local.install = true
-      ansible_local.install_mode = :default # Install ansible from official repositories
-      ansible_limit = "all"
-      # TODO: create inventory from Vagrantfile
+  # Better abstraction and more like a CMDB inventory
+  boxes = [
+    {
+      :name => "trantor",
+      :box => BOX_IMAGE 
+    },
+    {
+      :name => "terminus",
+      :box => BOX_IMAGE
+    },
+    {
+      :name => "anacreonte",
+      :box => BOX_IMAGE 
+    }
+  ]
+
+
+  boxes.each do |opts|
+    config.vm.define opts[:name] do |config|
+      config.vm.box = opts[:box]
+      config.vm.hostname = opts[:name]
     end
   end
 
-  # Terminus: GLPI node
-  NODE="terminus"
-  config.vm.define NODE do |machine|
-    machine.vm.box = BOX_IMAGE
-    machine.vm.hostname = "terminus"
-  end
-
-  # Anacreonte: Provisional log collector.
-  NODE="anacreonte"
-  config.vm.define NODE do |machine|
-    machine.vm.box = BOX_IMAGE
-    machine.vm.hostname = "anacreonte"
-  end
 end
