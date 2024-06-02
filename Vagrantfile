@@ -34,8 +34,9 @@ Vagrant.configure("2") do |config|
     config.vm.define opts[:name] do |config|
       config.vm.box = opts[:box]
       config.vm.hostname = opts[:name]
+
+      # Why not ansible? Because no need to add dependencies in this stage
       config.vm.provision :shell, path: "provision/preprovision/bootstrap.sh"
     end
   end
-
 end
