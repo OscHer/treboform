@@ -29,11 +29,12 @@ Vagrant.configure("2") do |config|
     }
   ]
 
-
+  # Iterate over each asset and do your magic
   boxes.each do |opts|
     config.vm.define opts[:name] do |config|
       config.vm.box = opts[:box]
       config.vm.hostname = opts[:name]
+      config.vm.provision :shell, path: "provision/preprovision/bootstrap.sh"
     end
   end
 
