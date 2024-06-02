@@ -16,6 +16,7 @@ Vagrant.configure("2") do |config|
     machine.vm.box = BOX_IMAGE
     machine.vm.hostname = "trantor"
 
+<<<<<<< Updated upstream
     # Set this node as our controller node
     machine.vm.provision :ansible_local do |ansible_local|
       ansible_local.playbook = "provision/ansible/playbook.yml"
@@ -24,6 +25,31 @@ Vagrant.configure("2") do |config|
       ansible_local.install_mode = :default # Install ansible from official repositories
       ansible_limit = "all"
       # TODO: create inventory from Vagrantfile
+=======
+  # Better abstraction and more like a CMDB inventory
+  boxes = [
+    {
+      :name => "trantor",
+      :box => BOX_IMAGE 
+    },
+    {
+      :name => "terminus",
+      :box => BOX_IMAGE
+    },
+    {
+      :name => "anacreonte",
+      :box => BOX_IMAGE 
+    }
+  ]
+
+  # Iterate over each asset and do your magic
+  boxes.each do |opts|
+    config.vm.define opts[:name] do |config|
+      config.vm.box = opts[:box]
+      config.vm.hostname = opts[:name]
+
+      config.vm.provision :shell, path: "provision/preprovision/bootstrap.sh"
+>>>>>>> Stashed changes
     end
   end
 

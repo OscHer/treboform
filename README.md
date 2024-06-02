@@ -30,7 +30,7 @@ Right now, what's going on behind the scenes is:
 1. Vagrant looks for the box somewhere in the local host.
 2. If there's one, creates a VM; if not, vagrant looks for it in [its public repository](https://app.vagrantup.com/boxes/search).
 3. Once the instantiated VM is up and running starts the provisioning process.
-  1. At first Trantor node is fully provisioned to be an [ansible controll node](https://docs.ansible.com/ansible/latest/network/getting_started/basic_concepts.html#control-node)
+  1. Every node is provisioned using a [bootstrap](provision/preprovision/bootstrap.sh) script.
 4. As a result we have a fully treboformed Type III Civilization and the magic begins.
 
 ### Assets
@@ -51,16 +51,16 @@ the other nodes are because... wait for it... ANSIBLE!!!!
 Every bit of knowledge of our infrastructure will be held here.
 
 ### Additional software
-#### Secondary logging
+~~#### Secondary logging
 Secondary logging is a bash based audit tool which logs every command executed in a shell
-or subshell no matter if it's an interactive terminal or not.
+or subshell no matter if it's an interactive terminal or not.~~
 
-At this moment will be deployed as a [shell script](provision/files/sl.sh) but in the future
-it will work as an ansible role.
+~~At this moment will be deployed as a [shell script](provision/files/sl.sh) but in the future
+it will work as an ansible role.~~
 
-##### Statu Quo
+~~##### Statu Quo
 Secondary logging is deployed into **/etc/profile.d/sl.sh** and sourced from **/etc/profile** in order to
-be available for every user independently of his **bashrc**.
+be available for every user independently of his **bashrc**.~~
 
 ## Appendices
 
