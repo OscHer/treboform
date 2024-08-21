@@ -12,7 +12,7 @@ for a cloud IT environment.
 
 * [Vagrant](https://www.vagrantup.com)
 * [Ansible](https://www.ansible.com)
-* [Virtualbox](https://www.virtualbox.org/) r [qemu](https://www.qemu.org) if you prefer
+* [Virtualbox](https://www.virtualbox.org/)
 * [KVM/Libvirt](https://libvirt.org/drvqemu.html): this is optional too
 * [Vim](https://www.vim.org/ "PERIOD!"). 
 
