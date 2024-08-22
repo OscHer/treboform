@@ -3,7 +3,7 @@
 The present project consists of creating an encyclopedia that includes all the necessary knowledge
 to create a Type III (in [Kardashev scale](https://en.wikipedia.org/wiki/Kardashev_scale)) galaxy-spanning civilization.
 
-## Description
+## Overview 
 
 Main goal of this project is to provide minimal services I (and by ***I*** I mean ***me***) happen to consider essential
 for a cloud IT environment.
@@ -34,6 +34,10 @@ Right now, what's going on behind the scenes is:
 4. As a result we have a fully treboformed Type III Civilization and the magic begins.
  
 ### Assets
+### VMs
+Currently, our base box is [Ubuntu-22.04](https://ubuntu.com/download/server) in it's [bento/ubuntu-24.04](https://app.vagrantup.com/bento/boxes/ubuntu-24.04) instantiation.
+There's a chance in the near future we build our own base image using Packer as stated in our [Roadmap](#Roadmap).
+
 #### Topology
 WIP
 
