@@ -36,6 +36,14 @@ Vagrant.configure("2") do |config|
     config.vm.define opts[:name] do |subconfig|
       subconfig.vm.box      = opts[:box]
       subconfig.vm.hostname = opts[:hostname]
+
+      # We aim to reduce our infrastructure dependencies so, our
+      # provisioning strategy is a self-deploying bastion which,
+      # after self provisioning, it runs ansible playbooks to every
+      # other node in our cloud.
+      if opts[:name] == "trantor"
+        subconfig.vm.provision "bootstrap", type: :shell, path: "provision/shell/bootstrap.sh"
+      end
     end
   end
 end
