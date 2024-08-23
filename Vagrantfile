@@ -1,8 +1,6 @@
 # -*- mode: ruby -*-
 # vi: set ft=ruby :
 
-# Global variables
-ENV['VAGRANT_HOME'] = '~/.vagrant.d/'
 
 # Project variables
 BASE_IMAGE = "bento/ubuntu-24.04"
