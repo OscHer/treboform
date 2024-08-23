@@ -1,6 +1,10 @@
 # -*- mode: ruby -*-
 # vi: set ft=ruby :
 
+# Global variables
+ENV['VAGRANT_HOME'] = '~/.vagrant.d/'
+
+# Project variables
 BASE_IMAGE = "bento/ubuntu-24.04"
 
 Vagrant.configure("2") do |config|
@@ -13,22 +17,26 @@ Vagrant.configure("2") do |config|
     {
       :name => "trantor",
       :box  => BASE_IMAGE,
-      :ip   => "192.168.56.10"
+      :ip   => "192.168.56.10",
+      :qxl_port => 5910
     },
     {
       :name => "terminus",
       :box  => BASE_IMAGE,
-      :ip   => "192.168.56.11"
+      :ip   => "192.168.56.11",
+      :qxl_port => 5911
     },
     {
       :name => "anacreon",
       :box  => BASE_IMAGE,
-      :ip   => "192.168.56.12"
+      :ip   => "192.168.56.12",
+      :qxl_port => 5912
     },
     {
       :name => "horleggor",
       :box  => BASE_IMAGE,
-      :ip   => "192.168.56.13"
+      :ip   => "192.168.56.13",
+      :qxl_port => 5913
     }
   ]
 
@@ -36,6 +44,13 @@ Vagrant.configure("2") do |config|
     config.vm.define opts[:name] do |subconfig|
       subconfig.vm.box      = opts[:box]
       subconfig.vm.hostname = opts[:hostname]
+
+      # VNC section
+      subconfig.vm.provider :libvirt do |libvirt|
+        libvirt.graphics_port = opts[:qxl_port]
+        libvirt.graphics_ip   = '0.0.0.0'
+        libvirt.video_type    = 'qxl'
+      end
 
       # We aim to reduce our infrastructure dependencies so, our
       # provisioning strategy is a self-deploying bastion which,
