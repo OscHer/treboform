@@ -50,10 +50,8 @@ Vagrant.configure("2") do |config|
         libvirt.video_type    = 'qxl'
       end
 
-      # We aim to reduce our infrastructure dependencies so, our
-      # provisioning strategy is a self-deploying bastion which,
-      # after self provisioning, it runs ansible playbooks to every
-      # other node in our cloud.
+      # We aim to reduce our infrastructure dependencies so, our  provisioning strategy is a 
+      # self-deploying bastion intended to serve as our main ansible controller node
       if opts[:name] == "trantor"
         subconfig.vm.provision "bootstrap", type: :shell, path: "provision/shell/bootstrap.sh"
       end
