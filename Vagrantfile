@@ -13,25 +13,25 @@ Vagrant.configure("2") do |config|
   # Provisional CMDB
   boxes = [
     {
-      :name => "trantor",
+      :hostname => "trantor",
       :box  => BASE_IMAGE,
       :ip   => "192.168.56.10",
       :qxl_port => 5910
     },
     {
-      :name => "terminus",
+      :hostname => "terminus",
       :box  => BASE_IMAGE,
       :ip   => "192.168.56.11",
       :qxl_port => 5911
     },
     {
-      :name => "anacreon",
+      :hostname => "anacreon",
       :box  => BASE_IMAGE,
       :ip   => "192.168.56.12",
       :qxl_port => 5912
     },
     {
-      :name => "horleggor",
+      :hostname => "horleggor",
       :box  => BASE_IMAGE,
       :ip   => "192.168.56.13",
       :qxl_port => 5913
@@ -39,7 +39,7 @@ Vagrant.configure("2") do |config|
   ]
 
   boxes.each do |opts|
-    config.vm.define opts[:name] do |subconfig|
+    config.vm.define opts[:hostname] do |subconfig|
       subconfig.vm.box      = opts[:box]
       subconfig.vm.hostname = opts[:hostname]
 
@@ -52,7 +52,7 @@ Vagrant.configure("2") do |config|
 
       # We aim to reduce our infrastructure dependencies so, our  provisioning strategy is a 
       # self-deploying bastion intended to serve as our main ansible controller node
-      if opts[:name] == "trantor"
+      if opts[:hostname] == "trantor"
         subconfig.vm.provision "bootstrap", type: :shell, path: "provision/shell/bootstrap.sh"
       end
     end
