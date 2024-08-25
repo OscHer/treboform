@@ -116,7 +116,11 @@ alias.lg log -n 15 --graph --pretty=format:'%C(auto)%h%d%Creset%C(cyan)(%cr, %C(
 ```
 
 #### Vagrant
-Every time I've modified my main [Vagrantfile](https://developer.hashicorp.com/vagrant/docs/vagrantfile) I've run a full test with `vagrant destroy -f && vagrant up`.
+Every time I've modified my main [Vagrantfile](https://developer.hashicorp.com/vagrant/docs/vagrantfile)
+I've run a full test with `vagrant destroy -f && vagrant up` just to be sure.
+
+##### Vagrant Plugins
+* [Vagrant-hostmanager](https://developer.hashicorp.com/vagrant/docs/vagrantfile/vagrant_settings#config-vagrant-plugins)
 
 ### Concepts
 
@@ -138,3 +142,5 @@ Every time I've modified my main [Vagrantfile](https://developer.hashicorp.com/v
     - Standarized Python logs with [logging](https://docs.python.org/3/library/logging.html)
 * Dotfiles
 * [Packer](https://www.packer.io/) to create our own base images
+
+
