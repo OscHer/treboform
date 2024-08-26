@@ -11,11 +11,11 @@ Vagrant.configure("2") do |config|
   # Required plugins
   # config.vagrant.plugins = ["vagrant-host-shell"]
 
-
   # Common BASE_IMAGE but not exclusive since we can
   # modify our inventory array. See below.
   config.vm.box = BASE_IMAGE
 
+  # TODO-oscar: add checksum for the vagrant box
   # Provisional CMDB
   boxes = [
     {
@@ -48,6 +48,7 @@ Vagrant.configure("2") do |config|
     config.vm.define opts[:hostname] do |subconfig|
       subconfig.vm.box      = opts[:box]
       subconfig.vm.hostname = opts[:hostname]
+      subconfig.vm.box_check_update = false # We don't want automated upgrades of vagrant boxes
 
       #config.vm.provision :host_shell do |host_shell|
       #  host_shell.inline = 'touch ./hostshell-works && echo hello from the host && hostname 1>&2'
