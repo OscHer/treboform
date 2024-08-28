@@ -143,4 +143,5 @@ I've run a full test with `vagrant destroy -f && vagrant up` just to be sure.
 * Dotfiles
 * [Packer](https://www.packer.io/) to create our own base images
 
-
+#### Good ideas that maybe I should implement
+* Alias for vagrant which executes neofetch in a loop for every node in the environment and prints it to stdout
