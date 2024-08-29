@@ -1,4 +1,4 @@
-# -*- mode: ruby -*-
+# -*- mode: rub y -*-
 # vi: set ft=ruby :
 
 # TODO-oscar: abstract global variables using external files using plugins like :
@@ -10,7 +10,7 @@ BASE_IMAGE = "bento/ubuntu-24.04"
 
 Vagrant.configure("2") do |config|
   # Required plugins
-  config.vagrant.plugins = ["vagrant-host-shell"]
+  #config.vagrant.plugins = ["vagrant-host-shell"]
 
   # Common BASE_IMAGE but not exclusive since we can
   # modify our inventory array. See below.
@@ -47,7 +47,7 @@ Vagrant.configure("2") do |config|
   ]
 
   # Global synced folder. Only high level and common tasks
-  config.vm.synced_folder "collector/", "/vagrant", type: "nfs"
+  config.vm.synced_folder "collector/", "/vagrant", type: "nfs", version: 4, nfs_udp: false
 
   boxes.each do |opts|
     config.vm.define opts[:hostname] do |subconfig|
