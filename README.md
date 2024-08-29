@@ -120,7 +120,7 @@ Every time I've modified my main [Vagrantfile](https://developer.hashicorp.com/v
 I've run a full test with `vagrant destroy -f && vagrant up` just to be sure.
 
 ##### Vagrant Plugins
-* [Vagrant-hostmanager](https://developer.hashicorp.com/vagrant/docs/vagrantfile/vagrant_settings#config-vagrant-plugins)
+* ~~[Vagrant-hostmanager](https://developer.hashicorp.com/vagrant/docs/vagrantfile/vagrant_settings#config-vagrant-plugins)~~
 
 ### Concepts
 
