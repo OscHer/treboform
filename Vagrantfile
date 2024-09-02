@@ -46,7 +46,8 @@ Vagrant.configure("2") do |config|
     }
   ]
 
-  # Global synced folder. Only high level and common tasks
+  # TODO-oscar: generate after boot metrics and sync them at a low level layer with host
+  # Global synced folder. Only high level and common tasks. WIP
   config.vm.synced_folder "collector/", "/vagrant", type: "nfs", version: 4, nfs_udp: false
 
   boxes.each do |opts|
@@ -73,6 +74,7 @@ Vagrant.configure("2") do |config|
       # self-deploying bastion intended to serve as our main ansible controller node
       if opts[:hostname] == "trantor"
         subconfig.vm.provision "bootstrap", type: :shell, path: "provision/shell/bootstrap.sh"
+        subconfig.vm.synced_folder "provision/ansible/", "/opt/ansible/", type: "nfs", version: 4, nfs_udp: false
       end
     end
   end

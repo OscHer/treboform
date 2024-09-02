@@ -36,7 +36,7 @@ Right now, what's going on behind the scenes is:
  
 ### Assets
 ### VMs
-Currently, our base box is [Ubuntu-22.04](https://ubuntu.com/download/server) in it's [bento/ubuntu-24.04](https://app.vagrantup.com/bento/boxes/ubuntu-24.04) instantiation.
+Currently, our base box is [Ubuntu-24.04](https://ubuntu.com/download/server) in it's [bento/ubuntu-24.04](https://app.vagrantup.com/bento/boxes/ubuntu-24.04) instantiation.
 There's a chance in the near future we build our own base image using Packer as stated in our [Roadmap](#Roadmap).
 
 #### Topology
@@ -59,7 +59,9 @@ Every bit of knowledge of our infrastructure will be held here.
 ##### Trantor: Ansible controller node
 **Trantor** will be our [Ansible control node](https://docs.ansible.com/ansible/latest/network/getting_started/basic_concepts.html). Our strategy consists in a centralized bastion
 to launch our configuration manager to every other node in our galaxy (pun not intended, or is it?).
-
+###### Trantor specific configurations
+* [Bootstraping script]("provision/shell/bootstrap.sh")
+* [Ansible]("provision/ansible/")
 
 #### Users and groups
 At this stage of the project two main zones are distinguished:
