@@ -9,6 +9,7 @@
 #                and configuration. 
 ######################################################################
 
+# TODO-oscar: make this compatible with dnf based distro and a discrimination routine
 apt-get update
 
 DEBIAN_FRONTEND=noninteractive \
@@ -17,3 +18,4 @@ apt-get \
 -fuy \
 dist-upgrade
 
+apt-get install -y ansible

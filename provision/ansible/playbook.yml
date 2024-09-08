@@ -1,0 +1,6 @@
+---
+- hosts: all
+  become: false
+  tasks:
+    - name: Say hello
+      ping:
