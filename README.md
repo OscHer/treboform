@@ -31,7 +31,7 @@ Right now, what's going on behind the scenes is:
 2. If there's one, creates a VM; if not, vagrant looks for it in [its public repository](https://app.vagrantup.com/boxes/search).
 3. Once the instantiated VM is up and running starts the provisioning process.
   1. Trantor node is provisioned using a [bootstrap](provision/preprovision/bootstrap.sh) script.
-  2. When Trantor (manager node) finishes its bootstraping tasks, it runs an ansible playbook to every other node. 
+  2. When Trantor (manager node) finishes its bootstraping tasks, it runs an ansible playbook to every other node.
 4. As a result we have a fully treboformed Type III Civilization and the magic begins.
  
 ### Assets
@@ -62,6 +62,11 @@ to launch our configuration manager to every other node in our galaxy (pun not i
 ###### Trantor specific configurations
 * [Bootstraping script]("provision/shell/bootstrap.sh")
 * [Ansible]("provision/ansible/")
+
+###### How is our bastion used
+At this stage, we're syncing our whole ansible code and directory tree from the host
+but later on, the whole ansible directory structure and [roles](https://docs.ansible.com/ansible/5/user_guide/playbooks_reuse_roles.html)
+is intended to be synced with a Git repository.
 
 #### Users and groups
 At this stage of the project two main zones are distinguished:
