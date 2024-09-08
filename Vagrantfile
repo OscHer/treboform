@@ -55,6 +55,7 @@ Vagrant.configure("2") do |config|
       subconfig.vm.box      = opts[:box]
       subconfig.vm.hostname = opts[:hostname]
       subconfig.vm.box_check_update = false # We don't want automated upgrades of vagrant boxes
+      subconfig.vm.network :private_network, ip: opts[:ip]
 
 
       #config.vm.provision :host_shell do |host_shell|
