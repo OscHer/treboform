@@ -1,4 +1,4 @@
-# -*- mode: rub y -*-
+# -*- mode: ruby -*-
 # vi: set ft=ruby :
 
 # TODO-oscar: abstract global variables using external files using plugins like :
@@ -68,13 +68,16 @@ Vagrant.configure("2") do |config|
         libvirt.video_type    = 'qxl'
       end
 
+      # TODO-oscar: give some more info when sayin' hi: OS, hardware, etc...
       subconfig.vm.provision "imalive", type: :shell, path: "provision/shell/imalive.sh"
 
       # We aim to reduce our infrastructure dependencies so, our  provisioning strategy is a 
       # self-deploying bastion intended to serve as our main ansible controller node
       if opts[:hostname] == "trantor"
+        # TODO-oscar: change these paths into variables for a better scalability.
         subconfig.vm.provision "bootstrap", type: :shell, path: "provision/shell/bootstrap.sh"
         subconfig.vm.synced_folder "provision/ansible/", "/opt/ansible/", type: "nfs", version: 4, nfs_udp: false
+
       end
     end
   end
