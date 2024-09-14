@@ -21,12 +21,6 @@ Vagrant.configure("2") do |config|
   # Provisional CMDB
   boxes = [
     {
-      :hostname => "trantor",
-      :box  => BASE_IMAGE,
-      :ip   => "192.168.56.10",
-      :qxl_port => 5910
-    },
-    {
       :hostname => "terminus",
       :box  => BASE_IMAGE,
       :ip   => "192.168.56.11",
@@ -46,23 +40,31 @@ Vagrant.configure("2") do |config|
     }
   ]
 
-  # TODO-oscar: generate after boot metrics and sync them at a low level layer with host
+  managers = [
+    {
+      :hostname => "trantor",
+      :box  => BASE_IMAGE,
+      :ip   => "192.168.56.10",
+      :qxl_port => 5910
+    }
+  ]
+
+  # TODO-oscar: generate after boot metrics and sync them at a low level layer with host being collector
   # Global synced folder. Only high level and common tasks. WIP
   config.vm.synced_folder "collector/", "/vagrant", type: "nfs", version: 4, nfs_udp: false
 
+  # Disable default synced folder since it breaks trantor provisioning
+  config.vm.synced_folder ".", "/vagrant", disabled: true
+
+  # Iterate over each machine while initializing every particular attribute
   boxes.each do |opts|
     config.vm.define opts[:hostname] do |subconfig|
-      subconfig.vm.box      = opts[:box]
-      subconfig.vm.hostname = opts[:hostname]
-      subconfig.vm.box_check_update = false # We don't want automated upgrades of vagrant boxes
+      subconfig.vm.box              = opts[:box]
+      subconfig.vm.hostname         = opts[:hostname]
+      subconfig.vm.box_check_update = true # We don't want automated upgrades of vagrant boxes
       subconfig.vm.network :private_network, ip: opts[:ip]
 
-
-      #config.vm.provision :host_shell do |host_shell|
-      #  host_shell.inline = 'touch ./hostshell-works && echo hello from the host && hostname 1>&2'
-      #end
-
-      # VNC section
+      # Specific Libvirt vars
       subconfig.vm.provider :libvirt do |libvirt|
         libvirt.graphics_port = opts[:qxl_port]
         libvirt.graphics_ip   = '0.0.0.0'
@@ -71,15 +73,53 @@ Vagrant.configure("2") do |config|
 
       # TODO-oscar: give some more info when sayin' hi: OS, hardware, etc...
       subconfig.vm.provision "imalive", type: :shell, path: "provision/shell/imalive.sh"
+    end
+  end
 
-      # We aim to reduce our infrastructure dependencies so, our  provisioning strategy is a 
-      # self-deploying bastion intended to serve as our main ansible controller node
-      if opts[:hostname] == "trantor"
-        # TODO-oscar: change these paths into variables for a better scalability.
-        subconfig.vm.provision "bootstrap", type: :shell, path: "provision/shell/bootstrap.sh"
-        subconfig.vm.synced_folder "provision/ansible/", "/opt/ansible/", type: "nfs", version: 4, nfs_udp: false
+  # We aim to reduce our infrastructure dependencies so our  provisioning strategy is a 
+  # self-deploying bastion intended to serve as our main ansible controller node
+  managers.each do |opts|
+    config.vm.define opts[:hostname] do |subconfig|
+      subconfig.vm.box              = opts[:box]
+      subconfig.vm.hostname         = opts[:hostname]
+      subconfig.vm.box_check_update = true # We don't want automated upgrades of vagrant boxes
+      subconfig.vm.network :private_network, ip: opts[:ip]
 
+      # Specific Libvirt vars
+      subconfig.vm.provider :libvirt do |libvirt|
+        libvirt.graphics_port = opts[:qxl_port]
+        libvirt.graphics_ip   = '0.0.0.0'
+        libvirt.video_type    = 'qxl'
+      end
+
+      # TODO-oscar: give some more info when sayin' hi: OS, hardware, etc...
+      subconfig.vm.provision "imalive", type: :shell, path: "provision/shell/imalive.sh"
+      # Generate ansible inventory
+      # TODO-oscar: abstract path into a variable
+      subconfig.vm.provision "shell" do |s|
+        s.inline = <<-SHELL
+          rm -f /vagrant/provision/ansible/inventory
+          echo "[all]" >> /vagrant/provision/ansible/inventory
+        SHELL
+  
+        boxes.each do |box|
+          s.inline += <<-SHELL
+            echo "#{box[:hostname]} ansible_host=#{box[:ip]}" >> /vagrant/provision/ansible/inventory
+          SHELL
+        end
+  
+        s.inline += <<-SHELL
+          echo "" >> /vagrant/provision/ansible/inventory
+          echo "[trantor]" >> /vagrant/provision/ansible/inventory
+          echo "trantor ansible_host=#{managers.find { |b| b[:hostname] == 'trantor' }[:ip]}" >> /vagrant/provision/ansible/inventory
+        SHELL
       end
     end
+
+    # TODO-oscar: change these paths into variables for a better scalability.
+    #config.vm.provision "bootstrap", type: :shell, path: "provision/shell/bootstrap.sh"
+
+    # Sync our ansible dependencies into trantor and only trantor
+    config.vm.synced_folder "provision/ansible/", "/vagrant/provision/ansible/", type: "nfs", version: 4, nfs_udp: false
   end
 end

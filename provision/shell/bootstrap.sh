@@ -18,4 +18,4 @@ apt-get \
 -fuy \
 dist-upgrade
 
-apt-get install -y ansible
+#apt-get install -y ansible
