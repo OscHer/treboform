@@ -30,9 +30,10 @@ Right now, what's going on behind the scenes is:
 1. Vagrant looks for the box somewhere in the local host.
 2. If there's one, creates a VM; if not, vagrant looks for it in [its public repository](https://app.vagrantup.com/boxes/search).
 3. Once the instantiated VM is up and running starts the provisioning process.
-  1. Trantor node is provisioned using a [bootstrap](provision/preprovision/bootstrap.sh) script.
-  2. When Trantor (manager node) finishes its bootstraping tasks, it runs an ansible playbook to every other node.
-4. As a result we have a fully treboformed Type III Civilization and the magic begins.
+    1. Trantor node is provisioned using a [bootstrap](provision/preprovision/bootstrap.sh) script.
+    2. When Trantor (manager node) finishes its bootstraping tasks, it runs an ansible playbook to every other node
+     using a vagrant self-generated inventory.
+4. ~~As a result we have a fully treboformed Type III Civilization and the magic begins.~~
  
 ### Assets
 ### VMs
