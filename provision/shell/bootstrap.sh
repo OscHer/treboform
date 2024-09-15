@@ -12,10 +12,8 @@
 # TODO-oscar: make this compatible with dnf based distro and a discrimination routine
 apt-get update
 
-DEBIAN_FRONTEND=noninteractive \
-apt-get \
--o Dpkg::Options::="--force-confnew" \
--fuy \
-dist-upgrade
-
-#apt-get install -y ansible
+#DEBIAN_FRONTEND=noninteractive \
+#apt-get \
+#-o Dpkg::Options::="--force-confnew" \
+#-fuy \
+#dist-upgrade

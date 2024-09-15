@@ -92,8 +92,6 @@ Vagrant.configure("2") do |config|
         libvirt.video_type    = 'qxl'
       end
 
-      # TODO-oscar: give some more info when sayin' hi: OS, hardware, etc...
-      subconfig.vm.provision "imalive", type: :shell, path: "provision/shell/imalive.sh"
       # Generate ansible inventory
       # TODO-oscar: abstract path into a variable
       subconfig.vm.provision "shell" do |s|
@@ -102,9 +100,16 @@ Vagrant.configure("2") do |config|
           echo "[all]" >> /vagrant/provision/ansible/inventory
         SHELL
   
+        # Add every managed node to ansible inventory
         boxes.each do |box|
           s.inline += <<-SHELL
             echo "#{box[:hostname]} ansible_host=#{box[:ip]}" >> /vagrant/provision/ansible/inventory
+          SHELL
+        end
+
+        managers.each do |manager|
+          s.inline += <<-SHELL
+            echo "#{manager[:hostname]} ansible_host=#{manager[:ip]}" >> /vagrant/provision/ansible/inventory
           SHELL
         end
   
@@ -117,7 +122,8 @@ Vagrant.configure("2") do |config|
     end
 
     # TODO-oscar: change these paths into variables for a better scalability.
-    #config.vm.provision "bootstrap", type: :shell, path: "provision/shell/bootstrap.sh"
+    config.vm.provision "bootstrap", type: :shell, path: "provision/shell/bootstrap.sh"
+    config.vm.provision "ansible_install", type: :shell, path: "provision/shell/ansible_install.sh"
 
     # Sync our ansible dependencies into trantor and only trantor
     config.vm.synced_folder "provision/ansible/", "/vagrant/provision/ansible/", type: "nfs", version: 4, nfs_udp: false

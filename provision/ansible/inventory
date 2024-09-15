@@ -1,7 +1,0 @@
-[all]
-terminus ansible_host=192.168.56.11
-anacreon ansible_host=192.168.56.12
-horleggor ansible_host=192.168.56.13
-
-[trantor]
-trantor ansible_host=192.168.56.10
