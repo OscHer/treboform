@@ -32,11 +32,7 @@ Right now, what's going on behind the scenes is:
 3. Once the instantiated VM is up and running starts the provisioning process.
     1. Trantor node is provisioned using a [bootstrap](provision/preprovision/bootstrap.sh) script.
     2. When Trantor (manager node) finishes its bootstraping tasks, it runs an ansible playbook to every other node
-<<<<<<< HEAD
-     using a [vagrant self-generated inventory](provision/shell/local_dns).
-=======
      using a [vagrant self-generated inventory](provision/shell/local_dns.sh).
->>>>>>> 58d8a00 (Feature: add /etc/hosts entries from ansible inventory)
 4. ~~As a result we have a fully treboformed Type III Civilization and the magic begins.~~
  
 ### Assets
