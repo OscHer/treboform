@@ -8,4 +8,5 @@ our only high level provisioner can be fed by a synced folder over
 whatever technology we prefer ([NFS](https://developer.hashicorp.com/vagrant/docs/synced-folders/nfs), [Virtualbox shared folders](https://developer.hashicorp.com/vagrant/docs/synced-folders/virtualbox), [rsync](https://developer.hashicorp.com/vagrant/docs/synced-folders/rsync), etc...)
 
 ## Resources
-* **[provision/ansible/](.):**  YOU ARE HERE
+* **[provision/ansible/](.):** Ansible provisioning directory from Vagrantfile.
+* **[provision/shell/local_dns.sh](../shell/local_dns.sh):** Script for generating */etc/hosts* entries based on an ansible inventory file.

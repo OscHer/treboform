@@ -48,13 +48,13 @@ Vagrant.configure("2") do |config|
      }
    ]
  
-   # TODO-oscar: generate after boot metrics and sync them at a low level layer with host being collector
-   # Global synced folder. Only high level and common tasks. WIP
-   config.vm.synced_folder "collector/", "/vagrant", type: "nfs", version: 4, nfs_udp: false
- 
    # Disable default synced folder since it breaks trantor provisioning
    config.vm.synced_folder ".", "/vagrant", disabled: true
  
+   # TODO-oscar: generate after boot metrics and sync them at a low level layer with host being collector
+   # Global synced folder. Only high level and common tasks. WIP
+   config.vm.synced_folder "collector/", "/vagrant", type: "nfs", version: 4, nfs_udp: false
+
    # Iterate over each machine while initializing every particular attribute
    boxes.each do |opts|
       config.vm.define opts[:hostname] do |subconfig|
@@ -71,7 +71,7 @@ Vagrant.configure("2") do |config|
          end
  
          # TODO-oscar: give some more info when sayin' hi: OS, hardware, etc...
-         subconfig.vm.provision "imalive", type: :shell, path: "provision/shell/imalive.sh"
+         #subconfig.vm.provision "imalive", type: :shell, path: "provision/shell/imalive.sh"
       end
    end
  
@@ -122,10 +122,10 @@ Vagrant.configure("2") do |config|
          # TODO-oscar: change these paths into variables for a better scalability.
          subconfig.vm.provision "bootstrap", type: :shell, path: "provision/shell/bootstrap.sh"
          subconfig.vm.provision "ansible_install", type: :shell, path: "provision/shell/ansible_install.sh"
+         subconfig.vm.provision "local_dns", type: :shell, path: "provision/shell/local_dns.sh"
  
          # Sync our ansible dependencies into trantor and only trantor
          subconfig.vm.synced_folder "provision/ansible/", "/vagrant/provision/ansible/", type: "nfs", version: 4, nfs_udp: false
- 
       end
    end
 end
